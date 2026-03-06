@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Locations — Mon Idéal Immobilier</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="location.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="navbar navbar-solid">
+        <div class="logo">
+            <a href="index.html" class="logo-link" aria-label="Mon Idéal Immobilier">
+                <img class="logo-img" src="img/Logo_Mon-Ideal-Immobilier 1.svg" alt="Logo Mon Ideal Immobilier">
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="catalogue.html">Acheter</a></li>
+                <li><a href="vendre.html">Vendre</a></li>
+                <li><a href="location.html" class="active">Louer</a></li>
+                <li><a href="notre-agence.html">Notre agence</a></li>
+                <li><a href="guide.html">Guide</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="match.html" class="btn-match-nav" aria-label="Match Immobilier">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z">
+                    </path>
+                </svg>
+            </a>
+            <button class="btn-contact">Nous contacter</button>
+            <button class="btn-signup">S'inscrire</button>
+        </div>
+    </header>
+
+    <!-- Header -->
+    <section class="location-header">
+        <h1>Nos <em>locations</em></h1>
+        <p>Une question, un projet ? Notre équipe est à votre écoute</p>
+    </section>
+
+    <!-- Filtres -->
+    <section class="location-filters">
+        <div class="filters-card">
+            <div class="filters-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+                <span>Filtres</span>
+            </div>
+
+            <div class="filters-row">
+                <!-- Type de bien -->
+                <div class="filter-group">
+                    <div class="filter-group-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Type de bien
+                    </div>
+                    <div class="pill-group" data-filter="type">
+                        <button class="pill active" data-value="tous">Tous</button>
+                        <button class="pill" data-value="maison">Maisons</button>
+                        <button class="pill" data-value="appartement">Appartements</button>
+                    </div>
+                </div>
+
+                <!-- Disponibilité -->
+                <div class="filter-group">
+                    <div class="filter-group-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Disponibilité
+                    </div>
+                    <div class="pill-group" data-filter="dispo">
+                        <button class="pill active" data-value="tous">Tous</button>
+                        <button class="pill" data-value="disponible">Disponible</button>
+                        <button class="pill" data-value="bientot">Bientôt</button>
+                    </div>
+                </div>
+
+                <!-- Colocation -->
+                <div class="filter-group">
+                    <div class="filter-group-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Colocation
+                    </div>
+                    <div class="coloc-toggle">
+                        <label class="coloc-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Colocation possible
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Annonces Location -->
+    <section class="location-grid-section">
+        <div class="location-grid">
+
+            <!-- Card 1 -->
+            <div class="loc-card">
+                <div class="loc-image">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800"
+                        alt="Maison Plougrescant">
+                    <div class="loc-badges">
+                        <span class="loc-badge loc-badge-type">Maison</span>
+                        <span class="loc-badge loc-badge-coloc">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Coloc OK
+                        </span>
+                    </div>
+                    <span class="loc-badge-dispo">Disponible</span>
+                </div>
+                <div class="loc-body">
+                    <h3>Maison 6 pièces</h3>
+                    <div class="loc-location">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        PLOUGRESCANT (22820)
+                    </div>
+                    <p class="loc-desc">Belle maison lumineuse avec balcon, proche métro et commerces. Idéal pour
+                        colocation.</p>
+                    <div class="loc-features">
+                        <div class="loc-feat">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M2 4v16"></path>
+                                <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+                                <path d="M2 17h20"></path>
+                                <path d="M6 8v9"></path>
+                            </svg>
+                            3 ch.
+                        </div>
+                        <div class="loc-feat">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 12H2"></path>
+                                <path
+                                    d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
+                                </path>
+                            </svg>
+                            1 sdb
+                        </div>
+                        <div class="loc-feat">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            </svg>
+                            89 m²
+                        </div>
+                    </div>
+                    <div class="loc-footer">
+                        <div class="loc-price">450€<span>/mois</span></div>
+                        <a href="#" class="btn-voir-details">Voir détails</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="loc-card">
+                <div class="loc-image">
+                    <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=800"
+                        alt="Maison La Roche-Jaudy">
+                    <div class="loc-badges">
+                        <span class="loc-badge loc-badge-type">Maison</span>
+                    </div>
+                    <span class="loc-badge-dispo">Disponible</span>
+                </div>
+                <div class="loc-body">
+                    <h3>Maison 4 pièces</h3>
+                    <div class="loc-location">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        LA ROCHE-JAUDY (22450)
+                    </div>
+                    <p class="loc-desc">Belle maison lumineuse avec balcon, proche métro et commerces.</p>
+                    <div class="loc-features">
+                        <div class="loc-feat">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M2 4v16"></path>
+                                <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+                                <path d="M2 17h20"></path>
+                                <path d="M6 8v9"></path>
+                            </svg>
+                            3 ch.
+                        </div>
+                        <div class="loc-feat">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 12H2"></path>
+                                <path
+                                    d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
+                                </path>
+                            </svg>
+                            1 sdb
+                        </div>
+                        <div class="loc-feat">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            </svg>
+                            88 m²
+                        </div>
+                    </div>
+                    <div class="loc-footer">
+                        <div class="loc-price">400€<span>/mois</span></div>
+                        <a href="#" class="btn-voir-details">Voir détails</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-col footer-brand">
+                <div class="footer-logo-block">
+                    <svg class="footer-logo-icon" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <div class="footer-logo-text">
+                        <span class="footer-logo-line1"><em>Mon Idéal</em></span>
+                        <span class="footer-logo-line2">IMMOBILIER</span>
+                    </div>
+                </div>
+                <p>Votre partenaire de confiance pour tous vos projets immobiliers.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="catalogue.html">Acheter</a></li>
+                    <li><a href="vendre.html">Vendre</a></li>
+                    <li><a href="location.html">Louer</a></li>
+                    <li><a href="notre-agence.html">Notre agence</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Accompagnement achat</a></li>
+                    <li><a href="#">Vente immobilière</a></li>
+                    <li><a href="#">Aide au financement</a></li>
+                    <li><a href="#">Expertise et conseil</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>4 RUE JEAN ROSTAND<br>22440 Ploufragan</span>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span>06 70 67 47 44</span>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>contact@monideal-immobilier.fr</span>
+                    </li>
+                </ul>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mon Idéal Immobilier. Tous droits réservés.</p>
+            <div class="footer-legal">
+                <a href="#">Mentions légales</a>
+                <a href="#">Confidentialité</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Pill filter toggle
+        document.querySelectorAll('.pill-group').forEach(group => {
+            group.querySelectorAll('.pill').forEach(pill => {
+                pill.addEventListener('click', () => {
+                    group.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+                    pill.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
