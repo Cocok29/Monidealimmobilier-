@@ -1,0 +1,235 @@
+/* ===== Solid navbar ===== */
+.navbar-solid {
+    background: white;
+    position: relative;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== Guide Header ===== */
+.guide-header {
+    padding: 50px 80px 40px;
+    text-align: center;
+    background: white;
+}
+
+.guide-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: #e8f5f0;
+    color: var(--primary-color, #108a7e);
+    border-radius: 25px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.guide-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark, #1a2332);
+    margin: 0 0 16px;
+    line-height: 1.35;
+}
+
+.guide-header h1 em {
+    color: var(--primary-color, #108a7e);
+    font-style: italic;
+}
+
+.guide-header p {
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.guide-header p u {
+    color: var(--text-dark, #1a2332);
+    font-weight: 600;
+}
+
+/* ===== Guide Cards Grid ===== */
+.guide-cards-section {
+    padding: 0 80px 60px;
+    background: white;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ===== Guide Card ===== */
+.guide-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon squares */
+.guide-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.guide-icon-green {
+    background: #e8f5f0;
+    color: #108a7e;
+}
+
+.guide-icon-orange {
+    background: #fef3e5;
+    color: #e8913a;
+}
+
+.guide-icon-blue {
+    background: #e8f0fe;
+    color: #4a90d9;
+}
+
+.guide-icon-brown {
+    background: #f0ebe5;
+    color: #8b6f47;
+}
+
+.guide-icon-pink {
+    background: #fce8ec;
+    color: #d94f6b;
+}
+
+.guide-icon-purple {
+    background: #ede8f5;
+    color: #7c5cbf;
+}
+
+.guide-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark, #1a2332);
+    margin: 0 0 8px;
+}
+
+.guide-card p {
+    font-size: 0.82rem;
+    color: #888;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.guide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-color, #108a7e);
+    text-decoration: none;
+    transition: gap 0.3s;
+}
+
+.guide-link:hover {
+    gap: 10px;
+}
+
+/* ===== CTA Checklist ===== */
+.guide-cta-section {
+    padding: 0 80px 80px;
+    background: white;
+}
+
+.guide-cta {
+    max-width: 700px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1a3c34 0%, #2a5c4e 100%);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    color: white;
+}
+
+.guide-cta-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+}
+
+.guide-cta h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+.guide-cta p {
+    font-size: 0.88rem;
+    opacity: 0.85;
+    line-height: 1.6;
+    margin: 0 0 26px;
+}
+
+.btn-checklist {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 30px;
+    background: white;
+    color: var(--text-dark, #1a2332);
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-checklist:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .guide-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .guide-header,
+    .guide-cards-section,
+    .guide-cta-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .guide-cta {
+        padding: 36px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .guide-header h1 {
+        font-size: 1.5rem;
+    }
+}
