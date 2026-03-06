@@ -900,3 +900,451 @@ html {
 .chiffres-grid .chiffre-item:nth-child(4) {
     transition-delay: 0.3s;
 }
+
+/* =============================================
+   PAGE PRODUIT
+   ============================================= */
+
+/* Navbar version solide (non transparente) */
+.navbar-solid {
+    position: relative;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding: 14px 80px;
+    background: #f8fafb;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #888;
+}
+
+.breadcrumb a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-color);
+}
+
+.breadcrumb-sep {
+    color: #bbb;
+}
+
+.breadcrumb span:last-child {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Layout principal */
+.produit-main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+}
+
+.produit-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ---- Galerie ---- */
+.galerie {
+    margin-bottom: 40px;
+}
+
+.galerie-main {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.galerie-main img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.galerie-main:hover img {
+    transform: scale(1.02);
+}
+
+.galerie-fav {
+    position: absolute;
+    top: 16px;
+    right: 56px;
+}
+
+.galerie-share {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.galerie-share:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Miniatures */
+.galerie-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.thumb {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.65;
+    transition: opacity 0.2s, transform 0.2s;
+    border: 2px solid transparent;
+}
+
+.thumb:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.thumb.active {
+    opacity: 1;
+    border-color: var(--primary-color);
+}
+
+/* ---- Sections produit ---- */
+.produit-section {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.produit-section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.produit-description {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.75;
+    margin: 0 0 14px;
+}
+
+.produit-description:last-child {
+    margin-bottom: 0;
+}
+
+/* Caractéristiques en deux colonnes */
+.caracteristiques-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 30px;
+}
+
+.caracteristiques-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.caracteristiques-list li {
+    font-size: 0.88rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.caracteristiques-list li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    flex-shrink: 0;
+}
+
+/* ---- Sidebar ---- */
+.produit-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+}
+
+.sidebar-prix {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.sidebar-localisation {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+}
+
+.sidebar-localisation svg {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+/* Stats (4 cases) */
+.sidebar-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 20px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8fafb;
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+.stat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(16, 138, 126, 0.1);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    color: #999;
+    line-height: 1;
+}
+
+.stat-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Détails tableau */
+.sidebar-details {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    color: #888;
+}
+
+.detail-value {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Badge DPE */
+.dpe-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+}
+
+.dpe-a {
+    background: #2cba00;
+}
+
+.dpe-b {
+    background: #79c901;
+}
+
+.dpe-c {
+    background: #c3d600;
+}
+
+.dpe-d {
+    background: #ffcb02;
+}
+
+.dpe-e {
+    background: #ffaa01;
+}
+
+.dpe-f {
+    background: #ff6701;
+}
+
+.dpe-g {
+    background: #dc0000;
+}
+
+/* Boutons CTA sidebar */
+.btn-cta-contact {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background 0.25s, transform 0.2s;
+}
+
+.btn-cta-contact:hover {
+    background: #0d7a70;
+    transform: translateY(-2px);
+}
+
+.btn-planifier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px;
+    background: white;
+    color: var(--text-dark);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: border-color 0.25s, color 0.25s, transform 0.2s;
+}
+
+.btn-planifier:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Info agent */
+.agent-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 4px;
+}
+
+.agent-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.agent-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.agent-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.agent-role {
+    font-size: 0.78rem;
+    color: #999;
+}
