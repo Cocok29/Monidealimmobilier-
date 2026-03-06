@@ -45,7 +45,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observer les éléments à animer
-document.querySelectorAll('.feature-card, .testimonial-card, .chiffre-item, .property-card').forEach(el => {
+document.querySelectorAll('.feature-card, .testimonial-card, .property-card').forEach(el => {
     el.classList.add('animate-on-scroll');
     observer.observe(el);
 });
