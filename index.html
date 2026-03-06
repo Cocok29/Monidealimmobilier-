@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Idéal Immobilier</title>
     <link rel="stylesheet" href="style.css">
+<<<<<<< Updated upstream
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     
+=======
+    <link href="" rel="stylesheet">
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -34,32 +38,40 @@
 
     <section class="hero-carousel">
         <div class="carousel-container">
+            <!-- Slide 1: Recherche classique -->
             <div class="slide active"
-                style="background-image: url('https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&q=80&w=2000');">
-            </div>
-            <div class="slide"
                 style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000');">
-            </div>
-        </div>
+                <div class="hero-content">
+                    <h1>Trouvez le bien idéal</h1>
+                    <p>Votre projet immobilier mérite un accompagnement sur-mesure</p>
 
-        <div class="hero-content">
-            <h1>Trouvez le bien idéal</h1>
-            <p>Votre projet immobilier mérite un accompagnement sur-mesure</p>
-
-            <div class="search-box">
-                <div class="search-input-group">
-                    <input type="text" placeholder="Ville, quartier, code postal...">
-                    <button class="btn-search">Rechercher</button>
+                    <div class="search-box">
+                        <div class="search-input-group">
+                            <input type="text" placeholder="Ville, quartier, code postal...">
+                            <button class="btn-search">Rechercher</button>
+                        </div>
+                        <div class="property-types">
+                            <button>Appartement</button>
+                            <button>Maison</button>
+                            <button>Villa</button>
+                            <button>Terrain</button>
+                        </div>
+                    </div>
+                    <a href="#" class="match-link">Découvrez notre nouvelle façon de trouver votre match →</a>
                 </div>
-                <div class="property-types">
-                    <button>Appartement</button>
-                    <button>Maison</button>
-                    <button>Villa</button>
-                    <button>Terrain</button>
-                </div>
             </div>
 
-            <a href="#" class="match-link">Découvrez notre nouvelle façon de trouver votre match →</a>
+            <!-- Slide 2: Match (Tinder Immo) -->
+            <div class="slide slide-match" style="background-image: url('img/tinderimmo.svg');">
+                <div class="hero-content">
+                    <h1>Matchez avec votre bien de rêve</h1>
+                    <p>Swipez, likez, visitez !</p>
+
+                    <div class="match-cta">
+                        <a href="#" class="btn-back-classic">← Revenir à la version classique</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <button class="next-btn">
