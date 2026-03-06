@@ -27,10 +27,10 @@ const BIENS = [
             "Portail automatique"
         ],
         photos: [
-            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80&w=1200"
+            "img/maisons/maison1/photo_2de1d8e8d9bef5196edf633b33f445d2-2.jpg",
+            "img/maisons/maison1/photo_6c7fd17ea4a4b9ef3e2ce3c9e8b0ac2a.jpg",
+            "img/maisons/maison1/photo_ddfad47206b9d78e7879a272a9f47edc.jpg",
+            "img/maisons/maison1/photo_dff44e7f8241753423984ce93d39f980.jpg"
         ]
     },
     {
@@ -61,10 +61,10 @@ const BIENS = [
             "Cave voûtée"
         ],
         photos: [
-            "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&q=80&w=1200"
+            "img/maisons/maison2/photo_31cca8039802e5e17485fa0e1a006263.jpg",
+            "img/maisons/maison2/photo_37689098d60d47034727180ed701b178-2.jpg",
+            "img/maisons/maison2/photo_4b0fc3a26bc5629385cf569153aed006.jpg",
+            "img/maisons/maison2/photo_5e30192793b1bcba7380eaf579bdd6ff.jpg"
         ]
     },
     {
@@ -95,10 +95,10 @@ const BIENS = [
             "Chaudière fuel"
         ],
         photos: [
-            "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1598928636135-d146006ff4be?auto=format&fit=crop&q=80&w=1200"
+            "img/maisons/maison3/photo_1830382cb887cef01180a209d5c4eee3.jpg",
+            "img/maisons/maison3/photo_3ca41dbcca9fca43690dde2db493bfb0.jpg",
+            "img/maisons/maison3/photo_d3fb3e1b4b3981da05a8029053a628d3.jpg",
+            "img/maisons/maison3/photo_d4cadc5c596984710132f8e28acdb2d2.jpg"
         ]
     },
     {
@@ -129,10 +129,10 @@ const BIENS = [
             "Buanderie"
         ],
         photos: [
-            "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=1200"
+            "img/maisons/maison4/photo_03dcb7e99f60870bb7a66d76852a1c1b-2.jpg",
+            "img/maisons/maison4/photo_38fa6973511dc5e34bbc5d15bd609e60.jpg",
+            "img/maisons/maison4/photo_3c9542967ea0bdfecfa9a92f9440d03b.jpg",
+            "img/maisons/maison4/photo_4346ab0e411cc553d5868d1eca8fcca8.jpg"
         ]
     },
     {
@@ -163,10 +163,10 @@ const BIENS = [
             "Double vitrage"
         ],
         photos: [
-            "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=1200"
+            "img/maisons/maison5/photo_2c2c731294d95fe8665e07608a021875-2.jpg",
+            "img/maisons/maison5/photo_7f2867acc0a5d963ca81e548ec047725.png",
+            "img/maisons/maison5/photo_90ebc5aea27ec2c1d593cdb68bdfff1a.jpg",
+            "img/maisons/maison5/photo_d373c4ef49a444dcbab42c0e8a6429dd.jpg"
         ]
     },
     {
@@ -197,10 +197,10 @@ const BIENS = [
             "Proche toutes commodités"
         ],
         photos: [
-            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=1200"
+            "img/maisons/maison6/photo_1614474944b50f5c4da42aee2da1da49.jpg",
+            "img/maisons/maison6/photo_1dcd6f8eb42d20987b60da6981e96da7.jpg",
+            "img/maisons/maison6/photo_bec4c8224c73d3b324bcb959c1548da9.jpg",
+            "img/maisons/maison6/photo_ec39f5bd54f7bae67381521285872b75.jpg"
         ]
     }
 ];
