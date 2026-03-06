@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos annonces immobilières | Mon Idéal Immobilier</title>
+    <meta name="description"
+        content="Découvrez notre sélection de biens immobiliers en Bretagne. Maisons, appartements, villas à vendre ou à louer.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar navbar-solid">
+        <div class="logo">
+            <img class="logo-img" src="img/Logo_Mon-Ideal-Immobilier 1.svg" alt="Logo Mon Ideal Immobilier">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="catalogue.html" class="active">Acheter</a></li>
+                <li><a href="#">Vendre</a></li>
+                <li><a href="#">Louer</a></li>
+                <li><a href="#">Notre agence</a></li>
+                <li><a href="#">Guide</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="btn-contact">Nous contacter</button>
+            <button class="btn-signup">S'inscrire</button>
+        </div>
+    </header>
+
+    <!-- En-tête de page -->
+    <section class="catalogue-header">
+        <h1>Nos <em>annonces</em> immobilières</h1>
+        <p>Découvrez notre sélection de biens en Bretagne</p>
+    </section>
+
+    <!-- Filtres -->
+    <div class="catalogue-filtres-wrap">
+        <div class="catalogue-filtres-card">
+            <div class="filtres-titre">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                Filtrer les résultats
+            </div>
+            <div class="filtres-row">
+                <div class="filtre-input-wrapper">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" placeholder="Rechercher par ville, type…" id="filtre-ville">
+                </div>
+                <select class="filtre-select" id="filtre-type">
+                    <option value="">Tous les types</option>
+                    <option value="Maison">Maison</option>
+                    <option value="Appartement">Appartement</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Terrain">Terrain</option>
+                </select>
+                <select class="filtre-select" id="filtre-prix">
+                    <option value="">Tous les prix</option>
+                    <option value="200000">Moins de 200 000 €</option>
+                    <option value="300000">Moins de 300 000 €</option>
+                    <option value="500000">Moins de 500 000 €</option>
+                    <option value="9999999">Plus de 500 000 €</option>
+                </select>
+            </div>
+            <div class="filtres-meta">
+                <span class="filtres-count" id="count-label">6 biens trouvés</span>
+                <button class="filtres-reset" id="btn-reset">Réinitialiser les filtres</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grille des biens -->
+    <main class="catalogue-main">
+        <div class="catalogue-grid" id="catalogue-grid">
+
+            <!-- Carte 1 -->
+            <article class="cat-card" data-type="Maison" data-prix="724000" data-ville="Plougrescant">
+                <a href="produit.html" class="cat-card-link">
+                    <div class="cat-card-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800"
+                            alt="Maison à Plougrescant">
+                        <div class="cat-badges">
+                            <span class="cat-badge badge-coeur">Coup de cœur</span>
+                        </div>
+                        <button class="btn-favorite cat-fav" aria-label="Ajouter aux favoris">♡</button>
+                    </div>
+                    <div class="cat-card-body">
+                        <div class="cat-prix">724 000 €</div>
+                        <div class="cat-nom">Maison 9 pièce(s) 5 chambre(s)</div>
+                        <div class="cat-localisation">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Plougrescant
+                        </div>
+                        <div class="cat-stats">
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span>9</span>
+                                <small>pièces</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                                <span>5</span>
+                                <small>chambres</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5">
+                                    </path>
+                                    <path d="M10 5H4v4h6v-4z"></path>
+                                </svg>
+                                <span>3</span>
+                                <small>SdB</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                </svg>
+                                <span>173</span>
+                                <small>m²</small>
+                            </div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="cat-tag">Jardin</span>
+                            <span class="cat-tag">Piscine</span>
+                            <span class="cat-tag">Dépendance</span>
+                        </div>
+                        <a href="produit.html" class="btn-voir-details">Voir les détails</a>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Carte 2 -->
+            <article class="cat-card" data-type="Maison" data-prix="295000" data-ville="Minihy-Tréguier">
+                <a href="produit.html" class="cat-card-link">
+                    <div class="cat-card-image">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=800"
+                            alt="Maison à Minihy-Tréguier">
+                        <div class="cat-badges">
+                            <span class="cat-badge badge-coeur">Coup de cœur</span>
+                            <span class="cat-badge badge-exclusif">Exclusif</span>
+                        </div>
+                        <button class="btn-favorite cat-fav" aria-label="Ajouter aux favoris">♡</button>
+                    </div>
+                    <div class="cat-card-body">
+                        <div class="cat-prix">295 000 €</div>
+                        <div class="cat-nom">Maison 5 pièce(s) 3 chambre(s)</div>
+                        <div class="cat-localisation">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Minihy-Tréguier
+                        </div>
+                        <div class="cat-stats">
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span>5</span>
+                                <small>pièces</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                                <span>3</span>
+                                <small>chambres</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5">
+                                    </path>
+                                    <path d="M10 5H4v4h6v-4z"></path>
+                                </svg>
+                                <span>3</span>
+                                <small>SdB</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                </svg>
+                                <span>110</span>
+                                <small>m²</small>
+                            </div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="cat-tag">Jardin</span>
+                            <span class="cat-tag">Garage</span>
+                        </div>
+                        <a href="produit.html" class="btn-voir-details">Voir les détails</a>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Carte 3 -->
+            <article class="cat-card" data-type="Maison" data-prix="195000" data-ville="Plougrescant">
+                <a href="produit.html" class="cat-card-link">
+                    <div class="cat-card-image">
+                        <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=800"
+                            alt="Maison à Plougrescant">
+                        <div class="cat-badges">
+                            <span class="cat-badge badge-coeur">Coup de cœur</span>
+                            <span class="cat-badge badge-exclusif">Exclusif</span>
+                        </div>
+                        <button class="btn-favorite cat-fav" aria-label="Ajouter aux favoris">♡</button>
+                    </div>
+                    <div class="cat-card-body">
+                        <div class="cat-prix">195 000 €</div>
+                        <div class="cat-nom">Maison 5 pièce(s) 3 chambre(s)</div>
+                        <div class="cat-localisation">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Plougrescant
+                        </div>
+                        <div class="cat-stats">
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span>5</span>
+                                <small>pièces</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                                <span>3</span>
+                                <small>chambres</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5">
+                                    </path>
+                                    <path d="M10 5H4v4h6v-4z"></path>
+                                </svg>
+                                <span>4</span>
+                                <small>SdB</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                </svg>
+                                <span>74</span>
+                                <small>m²</small>
+                            </div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="cat-tag">Jardin</span>
+                            <span class="cat-tag">Garage</span>
+                        </div>
+                        <a href="produit.html" class="btn-voir-details">Voir les détails</a>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Carte 4 -->
+            <article class="cat-card" data-type="Maison" data-prix="168000" data-ville="Plouguiel">
+                <a href="produit.html" class="cat-card-link">
+                    <div class="cat-card-image">
+                        <img src="https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?auto=format&fit=crop&q=80&w=800"
+                            alt="Maison à Plouguiel">
+                        <div class="cat-badges">
+                            <span class="cat-badge badge-nouveau">Nouveau</span>
+                            <span class="cat-badge badge-exclusif">Exclusif</span>
+                        </div>
+                        <button class="btn-favorite cat-fav" aria-label="Ajouter aux favoris">♡</button>
+                    </div>
+                    <div class="cat-card-body">
+                        <div class="cat-prix">168 000 €</div>
+                        <div class="cat-nom">Maison 4 pièce(s) 2 chambre(s)</div>
+                        <div class="cat-localisation">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Plouguiel
+                        </div>
+                        <div class="cat-stats">
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span>4</span>
+                                <small>pièces</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                                <span>2</span>
+                                <small>chambres</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5">
+                                    </path>
+                                    <path d="M10 5H4v4h6v-4z"></path>
+                                </svg>
+                                <span>1</span>
+                                <small>SdB</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                </svg>
+                                <span>61</span>
+                                <small>m²</small>
+                            </div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="cat-tag">Cave</span>
+                        </div>
+                        <a href="produit.html" class="btn-voir-details">Voir les détails</a>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Carte 5 -->
+            <article class="cat-card" data-type="Appartement" data-prix="175000" data-ville="Paimpol">
+                <a href="produit.html" class="cat-card-link">
+                    <div class="cat-card-image">
+                        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=800"
+                            alt="Appartement à Paimpol">
+                        <div class="cat-badges">
+                            <span class="cat-badge badge-type">Appartement</span>
+                        </div>
+                        <button class="btn-favorite cat-fav" aria-label="Ajouter aux favoris">♡</button>
+                    </div>
+                    <div class="cat-card-body">
+                        <div class="cat-prix">175 000 €</div>
+                        <div class="cat-nom">Maison 4 pièce(s) 3 chambre(s)</div>
+                        <div class="cat-localisation">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Paimpol
+                        </div>
+                        <div class="cat-stats">
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span>4</span>
+                                <small>pièces</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                                <span>3</span>
+                                <small>chambres</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5">
+                                    </path>
+                                    <path d="M10 5H4v4h6v-4z"></path>
+                                </svg>
+                                <span>1</span>
+                                <small>SdB</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                </svg>
+                                <span>85</span>
+                                <small>m²</small>
+                            </div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="cat-tag">Jardin</span>
+                            <span class="cat-tag">Quatre-saisons</span>
+                            <span class="cat-tag">Garage</span>
+                        </div>
+                        <a href="produit.html" class="btn-voir-details">Voir les détails</a>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Carte 6 -->
+            <article class="cat-card" data-type="Maison" data-prix="230000" data-ville="Trédarzec">
+                <a href="produit.html" class="cat-card-link">
+                    <div class="cat-card-image">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800"
+                            alt="Maison à Trédarzec">
+                        <div class="cat-badges">
+                            <span class="cat-badge badge-type">Maison</span>
+                        </div>
+                        <button class="btn-favorite cat-fav" aria-label="Ajouter aux favoris">♡</button>
+                    </div>
+                    <div class="cat-card-body">
+                        <div class="cat-prix">230 000 €</div>
+                        <div class="cat-nom">Maison 6 pièce(s) 3 chambre(s)</div>
+                        <div class="cat-localisation">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Trédarzec
+                        </div>
+                        <div class="cat-stats">
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span>6</span>
+                                <small>pièces</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                                <span>3</span>
+                                <small>chambres</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5">
+                                    </path>
+                                    <path d="M10 5H4v4h6v-4z"></path>
+                                </svg>
+                                <span>1</span>
+                                <small>SdB</small>
+                            </div>
+                            <div class="cat-stat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                </svg>
+                                <span>120</span>
+                                <small>m²</small>
+                            </div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="cat-tag">Jardin</span>
+                            <span class="cat-tag">Garage</span>
+                        </div>
+                        <a href="produit.html" class="btn-voir-details">Voir les détails</a>
+                    </div>
+                </a>
+            </article>
+
+        </div>
+
+        <!-- Message si aucun résultat -->
+        <div class="catalogue-empty" id="catalogue-empty" style="display:none;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <p>Aucun bien ne correspond à vos critères.</p>
+            <button class="filtres-reset" id="btn-reset-empty">Réinitialiser les filtres</button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-col footer-brand">
+                <span class="footer-logo">Mon Idéal <strong>IMMOBILIER</strong></span>
+                <p>Votre partenaire de confiance pour tous vos projets immobiliers.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="catalogue.html">Acheter</a></li>
+                    <li><a href="#">Vendre</a></li>
+                    <li><a href="#">Louer</a></li>
+                    <li><a href="#">Notre agence</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Accompagnement achat</a></li>
+                    <li><a href="#">Vente immobilière</a></li>
+                    <li><a href="#">Aide au financement</a></li>
+                    <li><a href="#">Expertise et conseil</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul class="footer-contact">
+                    <li>📍 4 RUE JEAN ROSTAND<br>22440 Ploufragan</li>
+                    <li>📞 06 70 67 47 44</li>
+                    <li>✉️ contact@monideai-immobilier.fr</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Mon Idéal Immobilier. Tous droits réservés.</p>
+            <div class="footer-legal">
+                <a href="#">Mentions légales</a>
+                <a href="#">Confidentialité</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Filtrage ---
+        const cards = document.querySelectorAll('.cat-card');
+        const inputVille = document.getElementById('filtre-ville');
+        const selectType = document.getElementById('filtre-type');
+        const selectPrix = document.getElementById('filtre-prix');
+        const countLabel = document.getElementById('count-label');
+        const emptyMsg = document.getElementById('catalogue-empty');
+
+        function applyFilters() {
+            const villeVal = inputVille.value.toLowerCase().trim();
+            const typeVal = selectType.value;
+            const prixVal = parseInt(selectPrix.value) || Infinity;
+
+            let visible = 0;
+            cards.forEach(card => {
+                const ville = card.dataset.ville.toLowerCase();
+                const type = card.dataset.type;
+                const prix = parseInt(card.dataset.prix);
+
+                const matchVille = !villeVal || ville.includes(villeVal);
+                const matchType = !typeVal || type === typeVal;
+                const matchPrix = prix <= prixVal;
+
+                if (matchVille && matchType && matchPrix) {
+                    card.style.display = '';
+                    visible++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            countLabel.textContent = visible + ' bien' + (visible > 1 ? 's' : '') + ' trouvé' + (visible > 1 ? 's' : '');
+            emptyMsg.style.display = visible === 0 ? 'flex' : 'none';
+        }
+
+        inputVille.addEventListener('input', applyFilters);
+        selectType.addEventListener('change', applyFilters);
+        selectPrix.addEventListener('change', applyFilters);
+
+        function resetFilters() {
+            inputVille.value = '';
+            selectType.value = '';
+            selectPrix.value = '';
+            applyFilters();
+        }
+
+        document.getElementById('btn-reset').addEventListener('click', resetFilters);
+        document.getElementById('btn-reset-empty').addEventListener('click', resetFilters);
+
+        // --- Favoris ---
+        document.querySelectorAll('.cat-fav').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isFav = btn.textContent.trim() === '♥';
+                btn.textContent = isFav ? '♡' : '♥';
+                btn.style.color = isFav ? '' : 'var(--accent-color)';
+            });
+        });
+    </script>
+
+</body>
+
+</html>

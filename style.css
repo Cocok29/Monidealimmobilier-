@@ -608,113 +608,6 @@ html {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* ===== Section CTA / Newsletter ===== */
-.cta-section {
-    padding: 90px 80px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #0d6e65 100%);
-    text-align: center;
-}
-
-.cta-content {
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-.cta-content h2 {
-    font-size: 2.2rem;
-    color: white;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.cta-content h2 em {
-    font-style: italic;
-    color: #b8f0e8;
-}
-
-.cta-content>p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 35px;
-}
-
-.cta-form {
-    display: flex;
-    gap: 12px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.cta-form input {
-    flex: 1;
-    padding: 16px 22px;
-    border: none;
-    border-radius: 14px;
-    font-size: 0.95rem;
-    font-family: 'Montserrat', sans-serif;
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--text-dark);
-}
-
-.cta-form input::placeholder {
-    color: #aaa;
-}
-
-.btn-cta {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 14px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 0.95rem;
-    font-family: 'Montserrat', sans-serif;
-    transition: background 0.3s, transform 0.2s;
-    white-space: nowrap;
-}
-
-.btn-cta:hover {
-    background: #e8895e;
-    transform: translateY(-2px);
-}
-
-/* ===== Section Chiffres ===== */
-.chiffres {
-    padding: 70px 80px;
-    background: #f8fafb;
-}
-
-.chiffres-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.chiffre-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.chiffre-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    line-height: 1;
-}
-
-.chiffre-label {
-    font-size: 0.9rem;
-    color: #777;
-    font-weight: 500;
-}
-
 /* ===== Footer ===== */
 .site-footer {
     background: #1a2332;
@@ -1345,4 +1238,372 @@ html {
 .agent-role {
     font-size: 0.78rem;
     color: #999;
+}
+
+/* =============================================
+   PAGE CATALOGUE
+   ============================================= */
+
+/* En-tête */
+.catalogue-header {
+    text-align: center;
+    padding: 60px 40px 30px;
+    background: white;
+}
+
+.catalogue-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 12px;
+}
+
+.catalogue-header h1 em {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.catalogue-header p {
+    color: #888;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Filtres — card blanche */
+.catalogue-filtres-wrap {
+    background: #f8fafb;
+    padding: 28px 60px 0;
+}
+
+.catalogue-filtres-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    padding: 22px 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.filtres-titre {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.filtres-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.filtre-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: 1px solid #e4e8ec;
+    border-radius: 10px;
+    padding: 11px 18px;
+    flex: 1;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filtre-input-wrapper:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(23, 143, 132, 0.08);
+}
+
+.filtre-input-wrapper input {
+    border: none;
+    background: transparent;
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    outline: none;
+}
+
+.filtre-input-wrapper input::placeholder {
+    color: #bbb;
+}
+
+.filtre-select {
+    background: white;
+    border: 1px solid #e4e8ec;
+    border-radius: 10px;
+    padding: 11px 40px 11px 16px;
+    font-size: 0.88rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    min-width: 160px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.filtre-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(23, 143, 132, 0.08);
+}
+
+.filtres-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4px;
+    border-top: 1px solid #f0f2f5;
+}
+
+.filtres-count {
+    font-size: 0.82rem;
+    color: #999;
+    font-weight: 500;
+}
+
+.filtres-reset {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+}
+
+.filtres-reset:hover {
+    color: #0d7a70;
+}
+
+/* Main catalogue */
+.catalogue-main {
+    background: #f8fafb;
+    padding: 40px 60px 80px;
+    min-height: 60vh;
+}
+
+/* Grille 2 colonnes */
+.catalogue-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+/* Carte catalogue */
+.cat-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.11);
+}
+
+.cat-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Image de la carte */
+.cat-card-image {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+}
+
+.cat-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.cat-card:hover .cat-card-image img {
+    transform: scale(1.04);
+}
+
+/* Badges */
+.cat-badges {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.cat-badge {
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.badge-coeur {
+    background: var(--primary-color);
+}
+
+.badge-exclusif {
+    background: #e8895e;
+}
+
+.badge-nouveau {
+    background: #4a90d9;
+}
+
+.badge-type {
+    background: #6c757d;
+}
+
+/* Bouton favori dans carte catalogue */
+.cat-fav {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+/* Corps de la carte */
+.cat-card-body {
+    padding: 22px 24px 24px;
+}
+
+.cat-prix {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.cat-nom {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.cat-localisation {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+.cat-localisation svg {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+/* Stats */
+.cat-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 14px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 14px;
+}
+
+.cat-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.cat-stat svg {
+    color: var(--primary-color);
+}
+
+.cat-stat span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+.cat-stat small {
+    font-size: 0.68rem;
+    color: #aaa;
+    font-weight: 500;
+}
+
+/* Tags */
+.cat-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.cat-tag {
+    background: #f1f5f9;
+    color: #555;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* Bouton Voir les détails */
+.btn-voir-details {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+}
+
+.btn-voir-details:hover {
+    background: #0d7a70;
+    transform: translateY(-1px);
+}
+
+/* Message aucun résultat */
+.catalogue-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 80px 20px;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+.catalogue-empty p {
+    color: #aaa;
+    font-size: 1rem;
+    margin: 0;
 }
