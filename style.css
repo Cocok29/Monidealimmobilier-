@@ -1277,28 +1277,6 @@ html {
     background: #dc0000;
 }
 
-/* Boutons CTA sidebar */
-.btn-cta-contact {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
-    margin-bottom: 12px;
-    transition: background 0.25s, transform 0.2s;
-}
-
-.btn-cta-contact:hover {
-    background: #0d7a70;
-    transform: translateY(-2px);
-}
-
 .btn-planifier {
     display: flex;
     align-items: center;
