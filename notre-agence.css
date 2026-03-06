@@ -1,0 +1,341 @@
+/* ===== Navbar solid (for inner pages) ===== */
+.navbar-solid {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Hero Banner ===== */
+.agence-hero {
+    position: relative;
+    height: 380px;
+    background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000') center center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agence-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.agence-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.agence-hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.agence-hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Notre histoire ===== */
+.notre-histoire {
+    padding: 80px 80px;
+    background: white;
+}
+
+.histoire-container {
+    max-width: 850px;
+}
+
+.histoire-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 30px;
+}
+
+.histoire-container h2 em {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.histoire-content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #555;
+    margin: 0 0 16px;
+}
+
+.histoire-content p strong {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.btn-rdv {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 32px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-rdv:hover {
+    background: #0d7a6f;
+    transform: translateY(-2px);
+}
+
+/* ===== Nos valeurs ===== */
+.nos-valeurs {
+    padding: 80px 80px;
+    background: #f8fafb;
+}
+
+.valeurs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.valeur-card {
+    background: white;
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.valeur-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.valeur-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(16, 138, 126, 0.1);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+}
+
+.valeur-icon.icon-orange {
+    background: rgba(241, 155, 125, 0.15);
+    color: var(--accent-color);
+}
+
+.valeur-icon.icon-green {
+    background: rgba(16, 138, 126, 0.1);
+    color: var(--primary-color);
+}
+
+.valeur-icon.icon-dark {
+    background: rgba(51, 51, 51, 0.08);
+    color: var(--text-dark);
+}
+
+.valeur-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 10px;
+}
+
+.valeur-card p {
+    font-size: 0.85rem;
+    color: #777;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== Notre ancrage local ===== */
+.ancrage-local {
+    padding: 80px 80px;
+    background: white;
+}
+
+.ancrage-local .section-header h2 em {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.ancrage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ancrage-card {
+    background: #f8fafb;
+    border-radius: 16px;
+    padding: 30px 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ancrage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.ancrage-marker {
+    margin-bottom: 14px;
+}
+
+.ancrage-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 10px;
+}
+
+.ancrage-card p {
+    font-size: 0.85rem;
+    color: #777;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== Nos chiffres clés ===== */
+.chiffres-cles {
+    padding: 60px 80px;
+    background: #f8fafb;
+}
+
+.chiffres-cles-box {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 2px solid var(--primary-color);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+}
+
+.chiffres-cles-box h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 40px;
+}
+
+.chiffres-cles-box h2 em {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.chiffres-cles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.chiffre-cle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.chiffre-cle-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.chiffre-cle-label {
+    font-size: 0.85rem;
+    color: #777;
+    font-weight: 500;
+}
+
+/* ===== CTA Rencontrons-nous ===== */
+.cta-rencontre {
+    padding: 60px 80px 80px;
+    background: #f8fafb;
+}
+
+.cta-rencontre-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.cta-rencontre-box h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 14px;
+}
+
+.cta-rencontre-box>p {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.6;
+    margin: 0 0 30px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-rencontre-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-rencontre-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-rencontre-primary:hover {
+    background: #0d7a6f;
+    transform: translateY(-2px);
+}
+
+.btn-rencontre-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: white;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 2px solid #e0e0e0;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+.btn-rencontre-secondary:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
