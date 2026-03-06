@@ -1,0 +1,336 @@
+/* ===== Solid navbar ===== */
+.navbar-solid {
+    background: white;
+    position: relative;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== Location Header ===== */
+.location-header {
+    padding: 50px 80px 30px;
+    text-align: center;
+    background: white;
+}
+
+.location-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark, #1a2332);
+    margin: 0 0 10px;
+}
+
+.location-header h1 em {
+    color: var(--primary-color, #108a7e);
+    font-style: italic;
+}
+
+.location-header p {
+    font-size: 0.92rem;
+    color: #888;
+    margin: 0;
+}
+
+/* ===== Filters ===== */
+.location-filters {
+    padding: 0 80px 30px;
+    background: white;
+}
+
+.filters-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.filters-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark, #1a2332);
+    margin-bottom: 20px;
+}
+
+.filters-row {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-group-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #666;
+}
+
+.filter-group-label svg {
+    color: #999;
+}
+
+/* Pill buttons */
+.pill-group {
+    display: flex;
+    gap: 8px;
+}
+
+.pill {
+    padding: 8px 18px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 25px;
+    background: white;
+    color: var(--text-dark, #1a2332);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.pill:hover {
+    border-color: var(--primary-color, #108a7e);
+    color: var(--primary-color, #108a7e);
+}
+
+.pill.active {
+    background: var(--primary-color, #108a7e);
+    border-color: var(--primary-color, #108a7e);
+    color: white;
+}
+
+/* Colocation toggle */
+.coloc-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.coloc-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-dark, #1a2332);
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.coloc-label:hover {
+    border-color: var(--primary-color, #108a7e);
+}
+
+.coloc-label svg {
+    color: #999;
+}
+
+/* ===== Location Grid ===== */
+.location-grid-section {
+    padding: 40px 80px 80px;
+    background: white;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ===== Location Card ===== */
+.loc-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Image */
+.loc-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.loc-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.loc-card:hover .loc-image img {
+    transform: scale(1.05);
+}
+
+/* Badges */
+.loc-badges {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    gap: 8px;
+}
+
+.loc-badge {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.loc-badge-type {
+    background: var(--primary-color, #108a7e);
+    color: white;
+}
+
+.loc-badge-coloc {
+    background: white;
+    color: var(--text-dark, #1a2332);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loc-badge-dispo {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: var(--primary-color, #108a7e);
+    color: white;
+}
+
+/* Body */
+.loc-body {
+    padding: 20px 22px 22px;
+}
+
+.loc-body h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-dark, #1a2332);
+    margin: 0 0 6px;
+}
+
+.loc-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.loc-location svg {
+    color: var(--primary-color, #108a7e);
+    flex-shrink: 0;
+}
+
+.loc-desc {
+    font-size: 0.82rem;
+    color: #777;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+/* Features */
+.loc-features {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.loc-feat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: #777;
+    font-weight: 500;
+}
+
+.loc-feat svg {
+    color: #bbb;
+}
+
+/* Footer of card */
+.loc-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.loc-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color, #108a7e);
+}
+
+.loc-price span {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #888;
+}
+
+.btn-voir-details {
+    padding: 10px 24px;
+    background: var(--primary-color, #108a7e);
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-voir-details:hover {
+    background: #0d7068;
+    transform: translateY(-2px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .filters-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-filters,
+    .location-grid-section,
+    .location-header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
