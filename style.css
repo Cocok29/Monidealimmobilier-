@@ -46,7 +46,7 @@ html {
 .nav-links a {
     text-decoration: none;
     color: #555;
-font-weight: 600;
+    font-weight: 600;
     font-size: 15px;
     transition: color 0.3s;
 }
@@ -518,6 +518,7 @@ font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+
 .property-location i {
     color: var(--primary-color);
     margin-right: 4px;
@@ -535,18 +536,23 @@ font-weight: 600;
     padding-top: 12px;
     border-top: 1px solid #f0f0f0;
 }
-.property-details span i{
+
+.property-details span i {
     color: var(--primary-color);
     padding-right: 5px;
 }
 
 /* Bouton Voir tous les biens */
 .voir-tous {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-voir-tous {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 40px;
     border: 2px solid var(--text-dark);
     border-radius: 30px;
@@ -1715,7 +1721,9 @@ font-weight: 600;
 
 /* Bouton Voir les détails */
 .btn-voir-details {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 13px;
     background: var(--primary-color);
@@ -1729,6 +1737,7 @@ font-weight: 600;
     text-decoration: none;
     cursor: pointer;
     transition: background 0.25s, transform 0.2s;
+    box-sizing: border-box;
 }
 
 .btn-voir-details:hover {
