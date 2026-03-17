@@ -24,10 +24,9 @@ dots.forEach((dot, index) => {
     });
 });
 
-// Auto-play du carrousel toutes les 5 secondes
 setInterval(() => {
     goToSlide(currentSlide + 1);
-}, 5000);
+}, 7000);
 
 // ===== Animation d'apparition au scroll =====
 const observerOptions = {

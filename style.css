@@ -288,15 +288,15 @@ html {
 }
 
 .slide-match h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
     line-height: 1;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     color: white;
 }
 
 .slide-match p {
-    font-size: 1.6rem;
-    margin-bottom: 60px;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
     opacity: 1;
     color: white;
 }
