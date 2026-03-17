@@ -5,350 +5,949 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Immobilier — Mon Idéal Immobilier</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
-        * {
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #108a7e;
+            --green-light: #e4f5f3;
+            --bg: #e8f5f2;
+            --white: #ffffff;
+            --text: #1a2332;
+            --muted: #8a9bb0;
+            --red: #f04040;
+            --tag-bg: #d6f0ec;
+            --tag-color: #0d7268;
+            --radius: 22px;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #f0f2f5;
+            background: var(--bg);
             min-height: 100vh;
-            overflow: hidden;
+            color: var(--text);
         }
 
-        /* Navbar */
-        .navbar-solid {
+        /* ===== TOP NAVBAR ===== */
+        .app-navbar {
+            background: var(--white);
+            padding: 0 28px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 0 #eef0f5;
+        }
+
+        .app-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .app-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--green);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .app-logo-text h2 {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .app-logo-text p {
+            font-size: 0.68rem;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-filters {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
             background: white;
-            position: relative;
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+            border: 1.5px solid #e0e5ef;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.2s;
         }
 
-        /* Page layout */
-        .swipe-page {
+        .btn-filters:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .fav-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--green);
+            border-radius: 30px;
+            color: white;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .fav-pill:hover {
+            background: #0c7268;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            color: var(--muted);
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--green);
+            background: var(--green-light);
+        }
+
+        /* ===== TAB BAR ===== */
+        .tab-bar {
+            display: flex;
+            background: var(--white);
+            border-bottom: 1px solid #eef0f5;
+        }
+
+        .tab {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--green);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .tab.active {
+            color: var(--white);
+            background: var(--green);
+        }
+
+        .tab.active::after {
+            opacity: 0;
+        }
+
+        /* ===== PAGE WRAPPER ===== */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ===== DISCOVER PAGE ===== */
+        .discover-page {
+            min-height: calc(100vh - 112px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: calc(100vh - 80px);
-            padding: 20px;
+            padding: 30px 20px 20px;
+        }
+
+        /* ===== SWIPE CARD ===== */
+        .card-wrapper {
             position: relative;
-        }
-
-        .swipe-title {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .swipe-title h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #1a2332;
-        }
-
-        .swipe-title h1 em {
-            color: #108a7e;
-            font-style: italic;
-        }
-
-        .swipe-title p {
-            font-size: 0.85rem;
-            color: #888;
-            margin-top: 4px;
-        }
-
-        /* Card stack */
-        .card-stack {
-            position: relative;
-            width: 380px;
-            height: 520px;
+            width: 480px;
         }
 
         .swipe-card {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            overflow: hidden;
             background: white;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-            cursor: grab;
-            transition: transform 0.5s cubic-bezier(.4, .2, .2, 1), opacity 0.4s;
-            user-select: none;
-            will-change: transform;
-        }
-
-        .swipe-card:active {
-            cursor: grabbing;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.10);
+            position: relative;
+            transition: transform 0.45s cubic-bezier(.4, .2, .2, 1), opacity 0.3s;
         }
 
         .swipe-card.gone-left {
-            transform: translateX(-150%) rotate(-30deg) !important;
+            transform: translateX(-120vw) rotate(-22deg) !important;
             opacity: 0;
             pointer-events: none;
+            transition: transform 0.5s cubic-bezier(.4, .2, .2, 1), opacity 0.3s;
         }
 
         .swipe-card.gone-right {
-            transform: translateX(150%) rotate(30deg) !important;
+            transform: translateX(120vw) rotate(22deg) !important;
             opacity: 0;
             pointer-events: none;
+            transition: transform 0.5s cubic-bezier(.4, .2, .2, 1), opacity 0.3s;
         }
 
-        .card-image {
-            height: 60%;
+        /* ===== CARD PHOTO ===== */
+        .card-photo {
             position: relative;
+            height: 300px;
             overflow: hidden;
+            background: #e0e5ef;
         }
 
-        .card-image img {
+        .card-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+            pointer-events: none;
+            user-select: none;
         }
 
-        .card-image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
-        }
-
-        .card-price {
-            position: absolute;
-            bottom: 14px;
-            left: 18px;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 800;
-        }
-
-        .card-badges {
+        .photo-type-badge {
             position: absolute;
             top: 14px;
             left: 14px;
-            display: flex;
-            gap: 6px;
-        }
-
-        .card-badge {
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.68rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text);
+            font-size: 0.72rem;
             font-weight: 700;
-            background: #108a7e;
+            padding: 5px 14px;
+            border-radius: 20px;
+        }
+
+        .photo-price-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--green);
             color: white;
+            font-size: 1rem;
+            font-weight: 800;
+            padding: 7px 18px;
+            border-radius: 20px;
         }
 
-        .card-badge-new {
-            background: #e8913a;
-        }
-
-        /* Stamp overlays */
+        /* stamp */
         .stamp {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%) rotate(-15deg);
-            font-size: 3rem;
-            font-weight: 800;
+            transform: translateY(-50%);
+            font-size: 2.2rem;
+            font-weight: 900;
             text-transform: uppercase;
-            padding: 8px 20px;
-            border: 5px solid;
-            border-radius: 12px;
+            padding: 6px 18px;
+            border-radius: 10px;
+            border: 4px solid;
             opacity: 0;
-            z-index: 10;
+            z-index: 20;
             pointer-events: none;
-            transition: opacity 0.15s;
+            letter-spacing: 2px;
         }
 
         .stamp-like {
-            left: 20px;
+            left: 14px;
             color: #22c55e;
             border-color: #22c55e;
+            transform: translateY(-50%) rotate(-15deg);
         }
 
         .stamp-nope {
-            right: 20px;
+            right: 14px;
             color: #ef4444;
             border-color: #ef4444;
             transform: translateY(-50%) rotate(15deg);
         }
 
-        /* Card body */
-        .card-body {
-            padding: 18px 20px;
-            height: 40%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-body h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #1a2332;
-            margin-bottom: 4px;
-        }
-
-        .card-location {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.78rem;
-            color: #888;
-            margin-bottom: 10px;
-        }
-
-        .card-location svg {
-            color: #108a7e;
-        }
-
-        .card-features {
-            display: flex;
-            gap: 18px;
-            margin-bottom: 10px;
-        }
-
-        .card-feat {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.78rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .card-feat svg {
-            color: #bbb;
-        }
-
-        .card-tags {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .card-tag {
-            padding: 3px 10px;
-            background: #f0f0f0;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        /* Action buttons */
-        .swipe-actions {
-            display: flex;
-            gap: 20px;
-            margin-top: 28px;
-        }
-
-        .action-btn {
-            width: 64px;
-            height: 64px;
+        /* Photo nav arrows */
+        .photo-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.88);
             border-radius: 50%;
-            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            transition: background 0.2s;
+            z-index: 5;
         }
 
-        .action-btn:hover {
-            transform: scale(1.12);
+        .photo-arrow:hover {
+            background: white;
         }
 
-        .action-btn:active {
-            transform: scale(0.95);
+        .photo-arrow.left {
+            left: 10px;
+        }
+
+        .photo-arrow.right {
+            right: 10px;
+        }
+
+        /* Photo dots */
+        .photo-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+
+        .photo-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transition: background 0.2s;
+        }
+
+        .photo-dot.active {
+            background: white;
+        }
+
+        /* ===== CARD BODY ===== */
+        .card-body {
+            padding: 20px 22px;
+        }
+
+        .card-address {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .card-city {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .card-city svg {
+            color: var(--green);
+        }
+
+        /* Stats row */
+        .card-stats {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-icon-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--green-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+        }
+
+        .stat-text label {
+            display: block;
+            font-size: 0.62rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .stat-text span {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        /* Meta row */
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .meta-year {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .dpe-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            background: #e8f8ec;
+            color: #22c55e;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        /* Tags */
+        .card-tags {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .card-tag {
+            padding: 5px 12px;
+            background: var(--tag-bg);
+            color: var(--tag-color);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* ===== PHOTO PREV ARROW ===== */
+
+        /* ===== ACTION BUTTONS ===== */
+        .action-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .act-btn {
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .act-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .act-btn:active {
+            transform: scale(0.92);
+        }
+
+        .btn-undo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            color: #f59e0b;
         }
 
         .btn-nope {
+            width: 60px;
+            height: 60px;
             background: white;
-            color: #ef4444;
-        }
-
-        .btn-info {
-            background: white;
-            color: #3b82f6;
-            width: 50px;
-            height: 50px;
+            color: var(--red);
         }
 
         .btn-like {
-            background: white;
-            color: #22c55e;
+            width: 60px;
+            height: 60px;
+            background: var(--green);
+            color: white;
+            box-shadow: 0 4px 20px rgba(16, 138, 126, 0.35);
         }
 
-        .btn-super {
-            background: white;
-            color: #f59e0b;
-            width: 50px;
-            height: 50px;
-        }
-
-        /* Match counter */
-        .match-count {
+        /* Progress pill */
+        .progress-pill {
             margin-top: 18px;
-            font-size: 0.8rem;
-            color: #999;
+            background: rgba(0, 0, 0, 0.07);
+            border-radius: 30px;
+            padding: 6px 20px;
+            font-size: 0.78rem;
+            color: #555;
+            font-weight: 600;
         }
 
-        .match-count strong {
-            color: #108a7e;
-        }
-
-        /* Empty state */
-        .empty-state {
+        /* Deck empty */
+        .deck-empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 30px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
+            width: 480px;
         }
 
-        .empty-state h2 {
-            font-size: 1.4rem;
-            color: #1a2332;
-            margin-bottom: 10px;
+        .deck-empty-state .emoji {
+            font-size: 3rem;
+            margin-bottom: 14px;
         }
 
-        .empty-state p {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 24px;
+        .deck-empty-state h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .deck-empty-state p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 22px;
         }
 
         .btn-restart {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 30px;
-            background: #108a7e;
+            padding: 13px 28px;
+            background: var(--green);
             color: white;
             border: none;
             border-radius: 30px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .btn-restart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 138, 126, 0.3);
+        }
+
+        /* ===== LIKES PAGE ===== */
+        .likes-page {
+            padding: 28px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .likes-page-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .likes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .likes-empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 70px 20px;
+            color: var(--muted);
+        }
+
+        .likes-empty-state .emoji {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .likes-empty-state p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-go-discover {
+            padding: 13px 28px;
+            background: var(--green);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 0.88rem;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
             cursor: pointer;
             transition: transform 0.2s;
         }
 
-        .btn-restart:hover {
+        .btn-go-discover:hover {
             transform: translateY(-2px);
         }
 
-        /* Responsive */
-        @media (max-width: 480px) {
-            .card-stack {
-                width: 340px;
-                height: 480px;
+        /* Liked card in grid */
+        .liked-grid-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+            cursor: pointer;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .liked-grid-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .liked-grid-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .liked-grid-body {
+            padding: 14px 16px;
+        }
+
+        .liked-grid-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .liked-grid-city {
+            font-size: 0.72rem;
+            color: var(--muted);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .liked-grid-price {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .liked-grid-stats {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .liked-grid-stat {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .liked-grid-stat strong {
+            color: var(--text);
+        }
+
+        /* Liked card remove btn */
+        .liked-grid-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            border-top: 1px solid #f4f5f8;
+        }
+
+        .btn-unlike {
+            font-size: 0.72rem;
+            color: var(--red);
+            font-weight: 700;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 0;
+            transition: opacity 0.2s;
+        }
+
+        .btn-unlike:hover {
+            opacity: 0.7;
+        }
+
+        .btn-details {
+            font-size: 0.72rem;
+            color: var(--green);
+            font-weight: 700;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-details:hover {
+            opacity: 0.7;
+        }
+
+        /* ===== DETAIL MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 18, 30, 0.55);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 24px;
+            width: min(640px, 95vw);
+            max-height: 88vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.22);
+            transform: scale(0.9) translateY(30px);
+            transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1);
+        }
+
+        .modal-overlay.open .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .modal-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 24px 24px 0 0;
+            display: block;
+        }
+
+        .modal-body {
+            padding: 26px 30px 30px;
+        }
+
+        .modal-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+
+        .modal-address {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .modal-close {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #f4f5f8;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            flex-shrink: 0;
+            margin-left: 12px;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #e8e9ed;
+        }
+
+        .modal-city {
+            font-size: 0.8rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 18px;
+        }
+
+        .modal-city svg {
+            color: var(--green);
+        }
+
+        .modal-price {
+            font-size: 2.1rem;
+            font-weight: 900;
+            color: var(--green);
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .modal-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .modal-stat-box {
+            background: #f8f9fb;
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .modal-stat-box .val {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .modal-stat-box .lbl {
+            display: block;
+            font-size: 0.67rem;
+            color: var(--muted);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .modal-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .modal-tag {
+            padding: 6px 14px;
+            background: var(--tag-bg);
+            color: var(--tag-color);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .modal-desc {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-modal-cta {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 14px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .btn-modal-cta.primary {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-modal-cta.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 138, 126, 0.3);
+        }
+
+        .btn-modal-cta.secondary {
+            background: #f4f5f8;
+            color: var(--text);
+        }
+
+        .btn-modal-cta.secondary:hover {
+            background: #eaebef;
+        }
+
+        @media (max-width: 500px) {
+            .card-wrapper {
+                width: 100%;
+                max-width: 360px;
+            }
+
+            .deck-empty-state {
+                width: 100%;
             }
         }
     </style>
@@ -356,481 +955,552 @@
 
 <body>
 
-    <header class="navbar navbar-solid">
-        <div class="logo">
-            <a href="index.html" class="logo-link" aria-label="Mon Idéal Immobilier">
-                <img class="logo-img" src="img/Logo_Mon-Ideal-Immobilier 1.svg" alt="Logo Mon Ideal Immobilier">
-            </a>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="catalogue.html">Acheter</a></li>
-                <li><a href="vendre.html">Vendre</a></li>
-                <li><a href="location.html">Louer</a></li>
-                <li><a href="notre-agence.html">Notre agence</a></li>
-                <li><a href="guide.html">Guide</a></li>
-            </ul>
-        </nav>
-        <div class="auth-buttons">
-            <a href="match.html" class="btn-match-nav btn-match-active" aria-label="Match Immobilier">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <!-- ===== TOP BAR ===== -->
+    <header class="app-navbar">
+        <a class="app-logo" href="index.html">
+            <div class="app-logo-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                     <path
-                        d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z">
-                    </path>
+                        d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
                 </svg>
+            </div>
+            <div class="app-logo-text">
+                <h2>Mon Idéal Immobilier</h2>
+                <p>Trouvez votre maison idéale</p>
+            </div>
+        </a>
+        <div class="nav-right">
+            <a href="index.html" class="back-link">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                </svg>
+                Retour au site
             </a>
-            <button class="btn-contact">Nous contacter</button>
-            <button class="btn-signup">S'inscrire</button>
+            <button class="btn-filters" onclick="alert('Filtres à venir')">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="8" y1="12" x2="16" y2="12" />
+                    <line x1="11" y1="18" x2="13" y2="18" />
+                </svg>
+                Filtres
+            </button>
+            <button class="fav-pill" onclick="switchTab('favoris')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
+                </svg>
+                <span id="favPillCount">0</span>
+            </button>
         </div>
     </header>
 
-    <div class="swipe-page">
-        <div class="swipe-title">
-            <h1>Trouvez votre <em>coup de cœur</em></h1>
-            <p>Swipez à droite pour aimer, à gauche pour passer</p>
+    <!-- ===== TAB BAR ===== -->
+    <div class="tab-bar">
+        <button class="tab active" id="tabDecouvrir" onclick="switchTab('decouvrir')">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+            </svg>
+            Découvrir
+        </button>
+        <button class="tab" id="tabFavoris" onclick="switchTab('favoris')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
+            </svg>
+            Favoris (<span id="favTabCount">0</span>)
+        </button>
+    </div>
+
+    <!-- ===== PAGE DÉCOUVRIR ===== -->
+    <div class="page active" id="pageDecouvrir">
+        <div class="discover-page">
+
+            <div class="card-wrapper" id="cardWrapper">
+                <!-- Card rendered by JS -->
+            </div>
+
+            <div class="action-bar">
+                <button class="act-btn btn-undo" id="btnUndo" title="Annuler">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" viewBox="0 0 24 24">
+                        <polyline points="1 4 1 10 7 10" />
+                        <path d="M3.51 15a9 9 0 1 0 .49-4.95" />
+                    </svg>
+                </button>
+                <button class="act-btn btn-nope" id="btnNope" title="Passer">
+                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+                <button class="act-btn btn-like" id="btnLike" title="J'aime">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="progress-pill" id="progressPill">Propriété 1 / 6</div>
         </div>
+    </div>
 
-        <div class="card-stack" id="cardStack">
-
-            <!-- Card 6 (bottom) -->
-            <div class="swipe-card" data-index="5">
-                <div class="stamp stamp-like">LIKE</div>
-                <div class="stamp stamp-nope">NOPE</div>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800"
-                        alt="Villa moderne">
-                    <div class="card-image-overlay"></div>
-                    <div class="card-badges"><span class="card-badge card-badge-new">Nouveauté</span></div>
-                    <span class="card-price">520 000 €</span>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3>Villa contemporaine 7 pièces</h3>
-                        <div class="card-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg> PLÉRIN (22190)</div>
-                        <div class="card-features">
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M2 4v16"></path>
-                                    <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-                                    <path d="M2 17h20"></path>
-                                    <path d="M6 8v9"></path>
-                                </svg> 4 ch.</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12H2"></path>
-                                    <path
-                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                    </path>
-                                </svg> 2 sdb</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                </svg> 180 m²</span>
-                        </div>
-                    </div>
-                    <div class="card-tags"><span class="card-tag">Piscine</span><span
-                            class="card-tag">Jardin</span><span class="card-tag">Garage</span></div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="swipe-card" data-index="4">
-                <div class="stamp stamp-like">LIKE</div>
-                <div class="stamp stamp-nope">NOPE</div>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=800"
-                        alt="Appartement lumineux">
-                    <div class="card-image-overlay"></div>
-                    <div class="card-badges"><span class="card-badge">Exclusif</span></div>
-                    <span class="card-price">145 000 €</span>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3>Appartement T3 lumineux</h3>
-                        <div class="card-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg> SAINT-BRIEUC (22000)</div>
-                        <div class="card-features">
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M2 4v16"></path>
-                                    <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-                                    <path d="M2 17h20"></path>
-                                    <path d="M6 8v9"></path>
-                                </svg> 2 ch.</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12H2"></path>
-                                    <path
-                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                    </path>
-                                </svg> 1 sdb</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                </svg> 68 m²</span>
-                        </div>
-                    </div>
-                    <div class="card-tags"><span class="card-tag">Balcon</span><span class="card-tag">Ascenseur</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="swipe-card" data-index="3">
-                <div class="stamp stamp-like">LIKE</div>
-                <div class="stamp stamp-nope">NOPE</div>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&q=80&w=800"
-                        alt="Maison neuve">
-                    <div class="card-image-overlay"></div>
-                    <div class="card-badges"><span class="card-badge card-badge-new">Nouveauté</span></div>
-                    <span class="card-price">285 000 €</span>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3>Maison neuve 5 pièces</h3>
-                        <div class="card-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg> PLOUFRAGAN (22440)</div>
-                        <div class="card-features">
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M2 4v16"></path>
-                                    <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-                                    <path d="M2 17h20"></path>
-                                    <path d="M6 8v9"></path>
-                                </svg> 3 ch.</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12H2"></path>
-                                    <path
-                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                    </path>
-                                </svg> 1 sdb</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                </svg> 110 m²</span>
-                        </div>
-                    </div>
-                    <div class="card-tags"><span class="card-tag">Jardin</span><span class="card-tag">Garage</span><span
-                            class="card-tag">BBC</span></div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="swipe-card" data-index="2">
-                <div class="stamp stamp-like">LIKE</div>
-                <div class="stamp stamp-nope">NOPE</div>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=800"
-                        alt="Maison de charme">
-                    <div class="card-image-overlay"></div>
-                    <div class="card-badges"><span class="card-badge">Coup de cœur</span></div>
-                    <span class="card-price">198 000 €</span>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3>Maison de charme 4 pièces</h3>
-                        <div class="card-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg> LA ROCHE-JAUDY (22450)</div>
-                        <div class="card-features">
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M2 4v16"></path>
-                                    <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-                                    <path d="M2 17h20"></path>
-                                    <path d="M6 8v9"></path>
-                                </svg> 3 ch.</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12H2"></path>
-                                    <path
-                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                    </path>
-                                </svg> 1 sdb</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                </svg> 95 m²</span>
-                        </div>
-                    </div>
-                    <div class="card-tags"><span class="card-tag">Jardin</span><span class="card-tag">Cheminée</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="swipe-card" data-index="1">
-                <div class="stamp stamp-like">LIKE</div>
-                <div class="stamp stamp-nope">NOPE</div>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800"
-                        alt="Maison familiale">
-                    <div class="card-image-overlay"></div>
-                    <div class="card-badges"><span class="card-badge">Exclusif</span></div>
-                    <span class="card-price">320 000 €</span>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3>Maison familiale 6 pièces</h3>
-                        <div class="card-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg> PLOUGRESCANT (22820)</div>
-                        <div class="card-features">
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M2 4v16"></path>
-                                    <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-                                    <path d="M2 17h20"></path>
-                                    <path d="M6 8v9"></path>
-                                </svg> 4 ch.</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12H2"></path>
-                                    <path
-                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                    </path>
-                                </svg> 2 sdb</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                </svg> 140 m²</span>
-                        </div>
-                    </div>
-                    <div class="card-tags"><span class="card-tag">Vue mer</span><span
-                            class="card-tag">Jardin</span><span class="card-tag">Garage</span></div>
-                </div>
-            </div>
-
-            <!-- Card 1 (top) -->
-            <div class="swipe-card" data-index="0">
-                <div class="stamp stamp-like">LIKE</div>
-                <div class="stamp stamp-nope">NOPE</div>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800"
-                        alt="Maison contemporaine">
-                    <div class="card-image-overlay"></div>
-                    <div class="card-badges"><span class="card-badge">Coup de cœur</span><span
-                            class="card-badge card-badge-new">Nouveauté</span></div>
-                    <span class="card-price">249 000 €</span>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3>Maison contemporaine 5 pièces</h3>
-                        <div class="card-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg> PLOUFRAGAN (22440)</div>
-                        <div class="card-features">
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M2 4v16"></path>
-                                    <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-                                    <path d="M2 17h20"></path>
-                                    <path d="M6 8v9"></path>
-                                </svg> 3 ch.</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12H2"></path>
-                                    <path
-                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                    </path>
-                                </svg> 1 sdb</span>
-                            <span class="card-feat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                </svg> 120 m²</span>
-                        </div>
-                    </div>
-                    <div class="card-tags"><span class="card-tag">Jardin</span><span
-                            class="card-tag">Parking</span><span class="card-tag">Terrasse</span></div>
+    <!-- ===== PAGE FAVORIS ===== -->
+    <div class="page" id="pageFavoris">
+        <div class="likes-page">
+            <div class="likes-page-title" id="likePageTitle">❤️ Mes favoris</div>
+            <div class="likes-grid" id="likesGrid">
+                <div class="likes-empty-state" id="likesEmptyState">
+                    <div class="emoji">🔥</div>
+                    <p>Aucun favori pour le moment.<br>Swipez à droite sur les biens qui vous plaisent !</p>
+                    <button class="btn-go-discover" onclick="switchTab('decouvrir')">Découvrir des biens</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Action buttons -->
-        <div class="swipe-actions">
-            <button class="action-btn btn-nope" id="btnNope" title="Passer">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                    stroke-linecap="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-            <button class="action-btn btn-info" id="btnInfo" title="Voir détails">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-            </button>
-            <button class="action-btn btn-super" id="btnSuper" title="Super Like">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                    </polygon>
-                </svg>
-            </button>
-            <button class="action-btn btn-like" id="btnLike" title="J'aime">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                    </path>
-                </svg>
-            </button>
-        </div>
-
-        <div class="match-count" id="matchCount">
-            <strong>0</strong> coup(s) de cœur
+    <!-- ===== DETAIL MODAL ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <img class="modal-photo" id="modalPhoto" src="" alt="">
+            <div class="modal-body">
+                <div class="modal-top">
+                    <div class="modal-address" id="modalAddress"></div>
+                    <button class="modal-close" id="modalClose">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-city">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span id="modalCity"></span>
+                </div>
+                <div class="modal-price" id="modalPrice"></div>
+                <div class="modal-stats" id="modalStats"></div>
+                <div class="modal-tags" id="modalTags"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-actions">
+                    <button class="btn-modal-cta primary">📞 Contacter l'agent</button>
+                    <button class="btn-modal-cta secondary">🗓 Planifier une visite</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        const stack = document.getElementById('cardStack');
-        const matchCountEl = document.getElementById('matchCount');
-        let cards = [];
-        let currentIndex = 0;
-        let likes = 0;
-        let startX = 0, startY = 0, currentX = 0, isDragging = false;
+// ===== DATA =====
+const BIENS = [
+    {
+        id: 1,
+        titre: "Maison contemporaine 5 pièces",
+        adresse: "12 Rue des Hortensias",
+        ville: "Ploufragan",
+        cp: "22440",
+        prix: "249 000 €",
+        type: "Maison",
+        chambres: 3, sdb: 1, surface: "120 m²",
+        annee: 2018, dpe: "B",
+        tags: ["Jardin", "Parking", "Terrasse", "BBC"],
+        desc: "Belle maison contemporaine de plain-pied très lumineuse. Cuisine équipée ouverte sur séjour, jardin paysagé avec terrasse en bois, garage double. Prestations de qualité.",
+        photos: [
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&q=80&w=800"
+        ]
+    },
+    {
+        id: 2,
+        titre: "Maison familiale 6 pièces",
+        adresse: "8 Chemin de la Côte",
+        ville: "Plougrescant",
+        cp: "22820",
+        prix: "320 000 €",
+        type: "Maison",
+        chambres: 4, sdb: 2, surface: "140 m²",
+        annee: 2015, dpe: "C",
+        tags: ["Vue mer", "Jardin", "Garage", "Piscine"],
+        desc: "Rare propriété avec vue mer panoramique. 4 chambres spacieuses, grande pièce de vie avec baie vitrée, piscine chauffée. Environnement verdoyant exceptionnel.",
+        photos: [
+            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800"
+        ]
+    },
+    {
+        id: 3,
+        titre: "Maison de charme 4 pièces",
+        adresse: "3 Route des Landes",
+        ville: "La Roche-Jaudy",
+        cp: "22450",
+        prix: "198 000 €",
+        type: "Maison",
+        chambres: 3, sdb: 1, surface: "95 m²",
+        annee: 1972, dpe: "D",
+        tags: ["Jardin", "Cheminée", "Pierre apparente"],
+        desc: "Authentique maison en pierre bretonne. Belle cheminée en granit dans le salon, cuisine rustique rénovée, grand jardin arboré.",
+        photos: [
+            "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=800"
+        ]
+    },
+    {
+        id: 4,
+        titre: "Maison neuve 5 pièces",
+        adresse: "47 Allée des Chênes",
+        ville: "Ploufragan",
+        cp: "22440",
+        prix: "285 000 €",
+        type: "Maison",
+        chambres: 3, sdb: 1, surface: "110 m²",
+        annee: 2024, dpe: "A",
+        tags: ["Jardin", "Garage", "BBC", "Neuf"],
+        desc: "Construction neuve aux normes RT2020. Finitions haut de gamme, cuisine équipée, suite parentale avec dressing, jardin clôturé, garage intégré.",
+        photos: [
+            "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&q=80&w=800"
+        ]
+    },
+    {
+        id: 5,
+        titre: "Appartement T3 lumineux",
+        adresse: "18bis Boulevard Clémenceau",
+        ville: "Saint-Brieuc",
+        cp: "22000",
+        prix: "145 000 €",
+        type: "Appartement",
+        chambres: 2, sdb: 1, surface: "68 m²",
+        annee: 2005, dpe: "C",
+        tags: ["Balcon", "Ascenseur", "Parking sous-sol"],
+        desc: "T3 traversant très lumineux, 3ème étage avec ascenseur. Grand balcon exposé sud, parking sous-sol, cave incluse.",
+        photos: [
+            "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=800"
+        ]
+    },
+    {
+        id: 6,
+        titre: "Villa contemporaine 7 pièces",
+        adresse: "2 Impasse du Phare",
+        ville: "Plérin",
+        cp: "22190",
+        prix: "520 000 €",
+        type: "Villa",
+        chambres: 4, sdb: 2, surface: "180 m²",
+        annee: 2021, dpe: "A",
+        tags: ["Piscine", "Jardin", "Domotique", "Vue mer"],
+        desc: "Somptueuse villa d'architecte sur 960 m². Cuisine américaine haut de gamme, piscine à débordement, home-cinéma, domotique intégrée.",
+        photos: [
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800"
+        ]
+    }
+];
 
-        function initCards() {
-            cards = Array.from(stack.querySelectorAll('.swipe-card')).reverse();
-            currentIndex = cards.length - 1;
-        }
+// ===== STATE =====
+let currentIndex = 0;
+let currentPhotoIndex = 0;
+let likes = [];
+let history = [];
 
-        function getTopCard() {
-            return cards[currentIndex];
-        }
+// drag
+let isDragging = false, startX = 0, currentDX = 0;
 
-        function swipeCard(direction) {
-            const card = getTopCard();
-            if (!card) return showEmpty();
+// ===== HELPERS =====
+const $ = id => document.getElementById(id);
 
-            card.classList.add(direction === 'right' ? 'gone-right' : 'gone-left');
+function updateFavCount() {
+    $('favPillCount').textContent = likes.length;
+    $('favTabCount').textContent = likes.length;
+}
 
-            if (direction === 'right') {
-                likes++;
-                matchCountEl.innerHTML = `<strong>${likes}</strong> coup(s) de cœur`;
-            }
+// ===== TABS =====
+function switchTab(tab) {
+    const isDiscover = tab === 'decouvrir';
+    $('pageDecouvrir').classList.toggle('active', isDiscover);
+    $('pageFavoris').classList.toggle('active', !isDiscover);
+    $('tabDecouvrir').classList.toggle('active', isDiscover);
+    $('tabFavoris').classList.toggle('active', !isDiscover);
+    if (!isDiscover) renderLikesGrid();
+}
 
-            currentIndex--;
+// ===== DISCOVER CARD RENDER =====
+function renderCard() {
+    const wrapper = $('cardWrapper');
+    if (currentIndex >= BIENS.length) {
+        wrapper.innerHTML = `
+            <div class="deck-empty-state">
+                <div class="emoji">🎉</div>
+                <h2>Vous avez tout vu !</h2>
+                <p>Vous avez aimé <strong>${likes.length}</strong> bien${likes.length !== 1 ? 's' : ''}.</p>
+                <button class="btn-restart" onclick="restartDeck()">Recommencer</button>
+            </div>
+        `;
+        $('progressPill').style.display = 'none';
+        $('action-bar') && ($('action-bar').style.display = 'none');
+        return;
+    }
 
-            if (currentIndex < 0) {
-                setTimeout(showEmpty, 500);
-            }
-        }
+    currentPhotoIndex = 0;
+    const b = BIENS[currentIndex];
+    const photos = b.photos;
 
-        function showEmpty() {
-            stack.innerHTML = `
-                <div class="empty-state">
-                    <h2>Vous avez tout vu ! 🎉</h2>
-                    <p>Vous avez aimé <strong>${likes}</strong> bien(s).</p>
-                    <button class="btn-restart" onclick="location.reload()">
-                        Recommencer
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+    wrapper.innerHTML = `
+        <div class="swipe-card" id="swipeCard">
+            <div class="stamp stamp-like">LIKE</div>
+            <div class="stamp stamp-nope">NOPE</div>
+            <div class="card-photo" id="cardPhotoArea">
+                <img src="${photos[0]}" alt="${b.titre}" id="cardPhoto" draggable="false">
+                ${photos.length > 1 ? `
+                    <button class="photo-arrow left" onclick="changePhoto(-1)">
+                        <svg width="12" height="12" fill="none" stroke="#333" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
                     </button>
+                    <button class="photo-arrow right" onclick="changePhoto(1)">
+                        <svg width="12" height="12" fill="none" stroke="#333" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                    <div class="photo-dots">${photos.map((_, i) => `<div class="photo-dot ${i === 0 ? 'active' : ''}" id="dot${i}"></div>`).join('')}</div>
+                ` : ''}
+                <span class="photo-type-badge">${b.type}</span>
+                <span class="photo-price-badge">${b.prix}</span>
+            </div>
+            <div class="card-body">
+                <div class="card-address">${b.adresse}</div>
+                <div class="card-city">
+                    <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    ${b.ville}
                 </div>
-            `;
-        }
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon-box">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+                        </div>
+                        <div class="stat-text"><label>Chambres</label><span>${b.chambres}</span></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon-box">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+                        </div>
+                        <div class="stat-text"><label>Bains</label><span>${b.sdb}</span></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon-box">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 3H3v7h18V3z"/><path d="M21 14H3v7h18v-7z"/></svg>
+                        </div>
+                        <div class="stat-text"><label>Surface</label><span>${b.surface}</span></div>
+                    </div>
+                </div>
+                <div class="card-meta">
+                    <span class="meta-year">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        ${b.annee}
+                    </span>
+                    <span class="dpe-badge">
+                        <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        DPE ${b.dpe}
+                    </span>
+                    <a href="#" onclick="openModal(BIENS[currentIndex]); return false;" style="font-size:0.72rem;color:#108a7e;font-weight:700;text-decoration:none;margin-left:auto;display:flex;align-items:center;gap:3px;">
+                        Voir détails
+                        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                </div>
+                <div class="card-tags">${b.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
+            </div>
+        </div>
+    `;
 
-        // Drag / Touch
-        function handleStart(e) {
-            const card = getTopCard();
-            if (!card) return;
-            isDragging = true;
-            startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
-            startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
-            card.style.transition = 'none';
-        }
+    $('progressPill').textContent = `Propriété ${currentIndex + 1} / ${BIENS.length}`;
+    $('progressPill').style.display = '';
 
-        function handleMove(e) {
-            if (!isDragging) return;
-            const card = getTopCard();
-            if (!card) return;
+    // Drag
+    const card = $('swipeCard');
+    card.addEventListener('mousedown', onDragStart);
+    card.addEventListener('touchstart', onDragStart, { passive: true });
+}
 
-            currentX = (e.type === 'mousemove' ? e.clientX : e.touches[0].clientX) - startX;
-            const rotation = currentX * 0.08;
-            card.style.transform = `translateX(${currentX}px) rotate(${rotation}deg)`;
+// ===== PHOTO NAV =====
+function changePhoto(dir) {
+    const b = BIENS[currentIndex];
+    if (!b || b.photos.length <= 1) return;
+    currentPhotoIndex = (currentPhotoIndex + dir + b.photos.length) % b.photos.length;
+    $('cardPhoto').src = b.photos[currentPhotoIndex];
+    b.photos.forEach((_, i) => {
+        const d = $('dot' + i);
+        if (d) d.className = 'photo-dot' + (i === currentPhotoIndex ? ' active' : '');
+    });
+}
 
-            const likeStamp = card.querySelector('.stamp-like');
-            const nopeStamp = card.querySelector('.stamp-nope');
-            const threshold = 60;
+// ===== SWIPE =====
+function swipeCard(direction, fromBtn = false) {
+    const card = $('swipeCard');
+    if (!card) return;
+    const b = BIENS[currentIndex];
+    card.classList.add(direction === 'right' ? 'gone-right' : 'gone-left');
 
-            if (currentX > threshold) {
-                likeStamp.style.opacity = Math.min((currentX - threshold) / 80, 1);
-                nopeStamp.style.opacity = 0;
-            } else if (currentX < -threshold) {
-                nopeStamp.style.opacity = Math.min((-currentX - threshold) / 80, 1);
-                likeStamp.style.opacity = 0;
-            } else {
-                likeStamp.style.opacity = 0;
-                nopeStamp.style.opacity = 0;
-            }
-        }
+    if (direction === 'right') {
+        if (!likes.find(l => l.id === b.id)) likes.push(b);
+        updateFavCount();
+    }
 
-        function handleEnd() {
-            if (!isDragging) return;
-            isDragging = false;
-            const card = getTopCard();
-            if (!card) return;
+    history.push({ index: currentIndex, direction });
+    currentIndex++;
+    setTimeout(renderCard, 420);
+}
 
-            card.style.transition = '';
+// ===== UNDO =====
+function undoLast() {
+    if (!history.length) return;
+    const last = history.pop();
+    if (last.direction === 'right') {
+        likes = likes.filter(l => l.id !== BIENS[last.index].id);
+        updateFavCount();
+    }
+    currentIndex = last.index;
+    renderCard();
+}
 
-            const likeStamp = card.querySelector('.stamp-like');
-            const nopeStamp = card.querySelector('.stamp-nope');
+// ===== RESTART =====
+function restartDeck() {
+    currentIndex = 0;
+    history = [];
+    likes = [];
+    updateFavCount();
+    renderCard();
+}
 
-            if (currentX > 100) {
-                swipeCard('right');
-            } else if (currentX < -100) {
-                swipeCard('left');
-            } else {
-                card.style.transform = '';
-                if (likeStamp) likeStamp.style.opacity = 0;
-                if (nopeStamp) nopeStamp.style.opacity = 0;
-            }
-            currentX = 0;
-        }
+// ===== DRAG / TOUCH =====
+function onDragStart(e) {
+    isDragging = true;
+    startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+    currentDX = 0;
+    document.addEventListener('mousemove', onDragMove);
+    document.addEventListener('mouseup', onDragEnd);
+    document.addEventListener('touchmove', onDragMove, { passive: true });
+    document.addEventListener('touchend', onDragEnd);
+}
 
-        // Event listeners
-        stack.addEventListener('mousedown', handleStart);
-        document.addEventListener('mousemove', handleMove);
-        document.addEventListener('mouseup', handleEnd);
-        stack.addEventListener('touchstart', handleStart, { passive: true });
-        document.addEventListener('touchmove', handleMove, { passive: true });
-        document.addEventListener('touchend', handleEnd);
+function onDragMove(e) {
+    if (!isDragging) return;
+    const card = $('swipeCard');
+    if (!card) return;
+    currentDX = (e.type === 'mousemove' ? e.clientX : e.touches[0].clientX) - startX;
+    card.style.transition = 'none';
+    card.style.transform = `translateX(${currentDX}px) rotate(${currentDX * 0.06}deg)`;
+    const like = card.querySelector('.stamp-like');
+    const nope = card.querySelector('.stamp-nope');
+    const t = 50;
+    like.style.opacity = currentDX > t ? Math.min((currentDX - t) / 70, 1) : 0;
+    nope.style.opacity = currentDX < -t ? Math.min((-currentDX - t) / 70, 1) : 0;
+}
 
-        // Button clicks
-        document.getElementById('btnNope').addEventListener('click', () => swipeCard('left'));
-        document.getElementById('btnLike').addEventListener('click', () => swipeCard('right'));
-        document.getElementById('btnSuper').addEventListener('click', () => swipeCard('right'));
+function onDragEnd() {
+    isDragging = false;
+    document.removeEventListener('mousemove', onDragMove);
+    document.removeEventListener('mouseup', onDragEnd);
+    document.removeEventListener('touchmove', onDragMove);
+    document.removeEventListener('touchend', onDragEnd);
+    const card = $('swipeCard');
+    if (!card) return;
+    card.style.transition = '';
+    if (currentDX > 100) swipeCard('right');
+    else if (currentDX < -100) swipeCard('left');
+    else {
+        card.style.transform = '';
+        card.querySelector('.stamp-like').style.opacity = 0;
+        card.querySelector('.stamp-nope').style.opacity = 0;
+    }
+    currentDX = 0;
+}
 
-        // Keyboard
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') swipeCard('left');
-            if (e.key === 'ArrowRight') swipeCard('right');
-        });
+// ===== LIKES GRID =====
+function renderLikesGrid() {
+    const grid = $('likesGrid');
+    const empty = $('likesEmptyState');
+    const title = $('likePageTitle');
 
-        initCards();
+    title.textContent = `❤️ Mes favoris (${likes.length})`;
+
+    // Remove all liked cards (keep the empty state node)
+    Array.from(grid.children).forEach(el => { if (el !== empty) el.remove(); });
+
+    if (likes.length === 0) {
+        empty.style.display = '';
+        return;
+    }
+    empty.style.display = 'none';
+    likes.forEach(b => {
+        const card = document.createElement('div');
+        card.className = 'liked-grid-card';
+        card.innerHTML = `
+            <img class="liked-grid-img" src="${b.photos[0]}" alt="${b.titre}">
+            <div class="liked-grid-body">
+                <div class="liked-grid-title">${b.titre}</div>
+                <div class="liked-grid-city">${b.adresse} · ${b.ville}</div>
+                <div class="liked-grid-price">${b.prix}</div>
+                <div class="liked-grid-stats">
+                    <span class="liked-grid-stat"><strong>${b.chambres}</strong> ch.</span>
+                    <span class="liked-grid-stat"><strong>${b.sdb}</strong> sdb</span>
+                    <span class="liked-grid-stat"><strong>${b.surface}</strong></span>
+                </div>
+            </div>
+            <div class="liked-grid-actions">
+                <button class="btn-unlike" onclick="unlikeCard(${b.id}, this)">✕ Retirer</button>
+                <button class="btn-details" onclick="openModal(likes.find(l=>l.id===${b.id}))">Voir détails →</button>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function unlikeCard(id, btn) {
+    likes = likes.filter(l => l.id !== id);
+    updateFavCount();
+    renderLikesGrid();
+}
+
+// ===== MODAL =====
+function openModal(b) {
+    if (!b) return;
+    $('modalPhoto').src = b.photos[0];
+    $('modalAddress').textContent = b.adresse;
+    $('modalCity').textContent = `${b.ville} (${b.cp})`;
+    $('modalPrice').textContent = b.prix;
+    $('modalDesc').textContent = b.desc;
+    $('modalStats').innerHTML = `
+        <div class="modal-stat-box"><span class="val">${b.chambres}</span><span class="lbl">Chambres</span></div>
+        <div class="modal-stat-box"><span class="val">${b.sdb}</span><span class="lbl">Salles de bain</span></div>
+        <div class="modal-stat-box"><span class="val">${b.surface}</span><span class="lbl">Surface</span></div>
+    `;
+    $('modalTags').innerHTML = b.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+    $('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    $('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+$('modalClose').addEventListener('click', closeModal);
+$('modalOverlay').addEventListener('click', e => { if (e.target === $('modalOverlay')) closeModal(); });
+
+// ===== BUTTONS =====
+$('btnNope').addEventListener('click', () => swipeCard('left'));
+$('btnLike').addEventListener('click', () => swipeCard('right'));
+$('btnUndo').addEventListener('click', undoLast);
+
+// ===== KEYBOARD =====
+document.addEventListener('keydown', e => {
+    if ($('modalOverlay').classList.contains('open')) { if (e.key === 'Escape') closeModal(); return; }
+    if (e.key === 'ArrowLeft') swipeCard('left');
+    if (e.key === 'ArrowRight') swipeCard('right');
+    if (e.key === 'ArrowUp') openModal(BIENS[currentIndex]);
+    if (e.key === 'z' || e.key === 'Z') undoLast();
+});
+
+// ===== INIT =====
+renderCard();
     </script>
-
 </body>
 
 </html>
