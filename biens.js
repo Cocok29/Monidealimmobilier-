@@ -31,7 +31,8 @@ const BIENS = [
             "img/maisons/maison1/photo_6c7fd17ea4a4b9ef3e2ce3c9e8b0ac2a.jpg",
             "img/maisons/maison1/photo_ddfad47206b9d78e7879a272a9f47edc.jpg",
             "img/maisons/maison1/photo_dff44e7f8241753423984ce93d39f980.jpg"
-        ]
+        ],
+        contrat: "Vente"
     },
     {
         id: 2,
@@ -65,7 +66,8 @@ const BIENS = [
             "img/maisons/maison2/photo_37689098d60d47034727180ed701b178-2.jpg",
             "img/maisons/maison2/photo_4b0fc3a26bc5629385cf569153aed006.jpg",
             "img/maisons/maison2/photo_5e30192793b1bcba7380eaf579bdd6ff.jpg"
-        ]
+        ],
+        contrat: "Vente"
     },
     {
         id: 3,
@@ -99,7 +101,8 @@ const BIENS = [
             "img/maisons/maison3/photo_3ca41dbcca9fca43690dde2db493bfb0.jpg",
             "img/maisons/maison3/photo_d3fb3e1b4b3981da05a8029053a628d3.jpg",
             "img/maisons/maison3/photo_d4cadc5c596984710132f8e28acdb2d2.jpg"
-        ]
+        ],
+        contrat: "Vente"
     },
     {
         id: 4,
@@ -133,7 +136,8 @@ const BIENS = [
             "img/maisons/maison4/photo_38fa6973511dc5e34bbc5d15bd609e60.jpg",
             "img/maisons/maison4/photo_3c9542967ea0bdfecfa9a92f9440d03b.jpg",
             "img/maisons/maison4/photo_4346ab0e411cc553d5868d1eca8fcca8.jpg"
-        ]
+        ],
+        contrat: "Vente"
     },
     {
         id: 5,
@@ -167,7 +171,8 @@ const BIENS = [
             "img/maisons/maison5/photo_7f2867acc0a5d963ca81e548ec047725.png",
             "img/maisons/maison5/photo_90ebc5aea27ec2c1d593cdb68bdfff1a.jpg",
             "img/maisons/maison5/photo_d373c4ef49a444dcbab42c0e8a6429dd.jpg"
-        ]
+        ],
+        contrat: "Vente"
     },
     {
         id: 6,
@@ -201,6 +206,78 @@ const BIENS = [
             "img/maisons/maison6/photo_1dcd6f8eb42d20987b60da6981e96da7.jpg",
             "img/maisons/maison6/photo_bec4c8224c73d3b324bcb959c1548da9.jpg",
             "img/maisons/maison6/photo_ec39f5bd54f7bae67381521285872b75.jpg"
-        ]
+        ],
+        contrat: "Vente"
+    },
+    {
+        id: 7,
+        titre: "Maison 6 pièces à Plougrescant",
+        type: "Maison",
+        ville: "PLOUGRESCANT",
+        cp: "22820",
+        prix: "950",
+        pieces: 6,
+        chambres: 3,
+        sdb: 2,
+        surface: "115",
+        garage: "1 place",
+        annee: "2010",
+        dpe: "C",
+        tags: ["Jardin", "Calme"],
+        contrat: "Location",
+        description: [
+            "PLOUGRESCANT // Maison familiale de 115 m² située au calme d'une impasse.",
+            "Elle offre une belle pièce de vie lumineuse, une cuisine aménagée et équipée, et trois chambres à l'étage.",
+            "Jardin clos de 500 m²."
+        ],
+        caracteristiques: ["Jardin clos", "Cuisine équipée", "Garage", "Chauffage électrique"],
+        photos: ["img/maisons/maison1/photo_2de1d8e8d9bef5196edf633b33f445d2-2.jpg"]
+    },
+    {
+        id: 8,
+        titre: "Appartement T3 à Lannion",
+        type: "Appartement",
+        ville: "LANNION",
+        cp: "22300",
+        prix: "680",
+        pieces: 3,
+        chambres: 2,
+        sdb: 1,
+        surface: "65",
+        garage: "Place de parking",
+        annee: "2018",
+        dpe: "A",
+        tags: ["Centre-ville", "Ascenseur"],
+        contrat: "Location",
+        description: [
+            "LANNION CENTRE // Bel appartement T3 récent de 65 m² avec balcon.",
+            "Situé au 2ème étage avec ascenseur, il comprend un séjour avec cuisine ouverte, deux chambres et une salle d'eau.",
+            "Place de parking sécurisée."
+        ],
+        caracteristiques: ["Balcon", "Ascenseur", "Parking sécurisé", "RT 2012"],
+        photos: ["img/maisons/maison2/photo_31cca8039802e5e17485fa0e1a006263.jpg"]
+    },
+    {
+        id: 9,
+        titre: "Maison de bourg à Tréguier",
+        type: "Maison",
+        ville: "TRÉGUIER",
+        cp: "22220",
+        prix: "820",
+        pieces: 4,
+        chambres: 2,
+        sdb: 1,
+        surface: "80",
+        garage: "Non",
+        annee: "1900",
+        dpe: "E",
+        tags: ["Charme", "Proche commerces"],
+        contrat: "Location",
+        description: [
+            "TRÉGUIER // Charmante maison de bourg rénovée de 80 m².",
+            "Cœur de ville historique, proche de toutes commodités. Salon avec cheminée décorative, cuisine séparée, deux chambres spacieuses."
+        ],
+        caracteristiques: ["Rénové", "Cheminée", "Centre historique", "Double vitrage"],
+        photos: ["img/maisons/maison3/photo_1830382cb887cef01180a209d5c4eee3.jpg"]
     }
 ];

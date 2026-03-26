@@ -98,6 +98,8 @@ html {
     cursor: pointer;
     font-weight: 500;
     transition: 0.3s;
+    text-decoration: none !important;
+    display: inline-block;
 }
 
 .btn-contact:hover {
@@ -1308,6 +1310,33 @@ html {
     background: #dc0000;
 }
 
+.btn-cta-contact {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(16, 138, 126, 0.2);
+}
+
+.btn-cta-contact:hover {
+    background: var(--dark-primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 138, 126, 0.3);
+}
+
+.btn-cta-contact:active {
+    transform: translateY(0);
+}
+
 .btn-planifier {
     display: flex;
     align-items: center;
@@ -1321,10 +1350,11 @@ html {
     border-radius: 12px;
     font-size: 0.9rem;
     font-weight: 600;
+    text-decoration: none !important;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     margin-bottom: 20px;
-    transition: border-color 0.25s, color 0.25s, transform 0.2s;
+    transition: all 0.3s ease;
 }
 
 .btn-planifier:hover {

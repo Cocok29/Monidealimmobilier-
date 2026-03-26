@@ -334,3 +334,24 @@
         padding-right: 20px;
     }
 }
+
+/* Clickable Cards */
+.loc-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.loc-card {
+    height: 100%;
+}
+
+.loc-body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 220px); /* Adjust based on image height */
+}
+
+.loc-footer {
+    margin-top: auto;
+}

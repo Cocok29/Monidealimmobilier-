@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Immobilier — Mon Idéal Immobilier</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
@@ -34,6 +35,7 @@
             background: var(--bg);
             min-height: 100vh;
             color: var(--text);
+            padding-top: 100px;
         }
 
         /* ===== TOP NAVBAR ===== */
@@ -919,6 +921,7 @@
             font-family: 'Montserrat', sans-serif;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.3s;
+            text-decoration: none !important;
         }
 
         .btn-modal-cta.primary {
@@ -956,41 +959,33 @@
 <body>
 
     <!-- ===== TOP BAR ===== -->
-    <header class="app-navbar">
-        <a class="app-logo" href="index.html">
-            <div class="app-logo-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
-                </svg>
-            </div>
-            <div class="app-logo-text">
-                <h2>Mon Idéal Immobilier</h2>
-                <p>Trouvez votre maison idéale</p>
-            </div>
-        </a>
-        <div class="nav-right">
-            <a href="index.html" class="back-link">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <polyline points="15 18 9 12 15 6" />
-                </svg>
-                Retour au site
+    <!-- Navbar -->
+    <header class="navbar navbar-solid" style="position: fixed; top:0; left:0; right:0; z-index: 1000;">
+        <div class="logo">
+            <a href="index.html" style="display: block; line-height: 0;">
+                <img class="logo-img" src="img/Logo_Mon-Ideal-Immobilier 1.svg" alt="Logo Mon Ideal Immobilier">
             </a>
-            <button class="btn-filters" onclick="alert('Filtres à venir')">
-                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <line x1="4" y1="6" x2="20" y2="6" />
-                    <line x1="8" y1="12" x2="16" y2="12" />
-                    <line x1="11" y1="18" x2="13" y2="18" />
-                </svg>
-                Filtres
-            </button>
-            <button class="fav-pill" onclick="switchTab('favoris')">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="catalogue.html">Acheter</a></li>
+                <li><a href="vendre.html">Vendre</a></li>
+                <li><a href="location.html">Louer</a></li>
+                <li><a href="notre-agence.html">Notre agence</a></li>
+                <li><a href="guide.html">Guide</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <!-- Fire / Match Icon (Switch to Favoris) -->
+            <button class="fav-pill" style="height: 42px; padding: 0 16px;" onclick="switchTab('favoris')">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
+                    <path d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
                 </svg>
                 <span id="favPillCount">0</span>
             </button>
+
+            <a href="contact.html" class="btn-contact" style="margin-left: 10px;">Nous contacter</a>
         </div>
     </header>
 
@@ -1083,120 +1078,45 @@
                     </svg>
                     <span id="modalCity"></span>
                 </div>
+                <div class="modal-city">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span id="modalCity"></span>
+                </div>
                 <div class="modal-price" id="modalPrice"></div>
                 <div class="modal-stats" id="modalStats"></div>
                 <div class="modal-tags" id="modalTags"></div>
                 <p class="modal-desc" id="modalDesc"></p>
                 <div class="modal-actions">
-                    <button class="btn-modal-cta primary">📞 Contacter l'agent</button>
-                    <button class="btn-modal-cta secondary">🗓 Planifier une visite</button>
+                    <a href="contact.html" class="btn-modal-cta primary" style="text-decoration: none; text-align: center;">Planifier une visite</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="biens.js"></script>
     <script>
-// ===== DATA =====
-const BIENS = [
-    {
-        id: 1,
-        titre: "Maison contemporaine 5 pièces",
-        adresse: "12 Rue des Hortensias",
-        ville: "Ploufragan",
-        cp: "22440",
-        prix: "249 000 €",
-        type: "Maison",
-        chambres: 3, sdb: 1, surface: "120 m²",
-        annee: 2018, dpe: "B",
-        tags: ["Jardin", "Parking", "Terrasse", "BBC"],
-        desc: "Belle maison contemporaine de plain-pied très lumineuse. Cuisine équipée ouverte sur séjour, jardin paysagé avec terrasse en bois, garage double. Prestations de qualité.",
-        photos: [
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&q=80&w=800"
-        ]
-    },
-    {
-        id: 2,
-        titre: "Maison familiale 6 pièces",
-        adresse: "8 Chemin de la Côte",
-        ville: "Plougrescant",
-        cp: "22820",
-        prix: "320 000 €",
-        type: "Maison",
-        chambres: 4, sdb: 2, surface: "140 m²",
-        annee: 2015, dpe: "C",
-        tags: ["Vue mer", "Jardin", "Garage", "Piscine"],
-        desc: "Rare propriété avec vue mer panoramique. 4 chambres spacieuses, grande pièce de vie avec baie vitrée, piscine chauffée. Environnement verdoyant exceptionnel.",
-        photos: [
-            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800"
-        ]
-    },
-    {
-        id: 3,
-        titre: "Maison de charme 4 pièces",
-        adresse: "3 Route des Landes",
-        ville: "La Roche-Jaudy",
-        cp: "22450",
-        prix: "198 000 €",
-        type: "Maison",
-        chambres: 3, sdb: 1, surface: "95 m²",
-        annee: 1972, dpe: "D",
-        tags: ["Jardin", "Cheminée", "Pierre apparente"],
-        desc: "Authentique maison en pierre bretonne. Belle cheminée en granit dans le salon, cuisine rustique rénovée, grand jardin arboré.",
-        photos: [
-            "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=800"
-        ]
-    },
-    {
-        id: 4,
-        titre: "Maison neuve 5 pièces",
-        adresse: "47 Allée des Chênes",
-        ville: "Ploufragan",
-        cp: "22440",
-        prix: "285 000 €",
-        type: "Maison",
-        chambres: 3, sdb: 1, surface: "110 m²",
-        annee: 2024, dpe: "A",
-        tags: ["Jardin", "Garage", "BBC", "Neuf"],
-        desc: "Construction neuve aux normes RT2020. Finitions haut de gamme, cuisine équipée, suite parentale avec dressing, jardin clôturé, garage intégré.",
-        photos: [
-            "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&q=80&w=800"
-        ]
-    },
-    {
-        id: 5,
-        titre: "Appartement T3 lumineux",
-        adresse: "18bis Boulevard Clémenceau",
-        ville: "Saint-Brieuc",
-        cp: "22000",
-        prix: "145 000 €",
-        type: "Appartement",
-        chambres: 2, sdb: 1, surface: "68 m²",
-        annee: 2005, dpe: "C",
-        tags: ["Balcon", "Ascenseur", "Parking sous-sol"],
-        desc: "T3 traversant très lumineux, 3ème étage avec ascenseur. Grand balcon exposé sud, parking sous-sol, cave incluse.",
-        photos: [
-            "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=800"
-        ]
-    },
-    {
-        id: 6,
-        titre: "Villa contemporaine 7 pièces",
-        adresse: "2 Impasse du Phare",
-        ville: "Plérin",
-        cp: "22190",
-        prix: "520 000 €",
-        type: "Villa",
-        chambres: 4, sdb: 2, surface: "180 m²",
-        annee: 2021, dpe: "A",
-        tags: ["Piscine", "Jardin", "Domotique", "Vue mer"],
-        desc: "Somptueuse villa d'architecte sur 960 m². Cuisine américaine haut de gamme, piscine à débordement, home-cinéma, domotique intégrée.",
-        photos: [
-            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800"
-        ]
+// Format data from biens.js to match match.html expectations
+BIENS.forEach(b => {
+    // Standardize fields for Match UI
+    if (!b.adresse) b.adresse = b.titre; 
+    if (b.pieces && !b.chambres) b.chambres = Math.max(1, b.pieces - 2); 
+    
+    if (typeof b.prix === 'string' && !b.prix.includes('€')) {
+        b.prix = b.prix + " €";
     }
-];
+    if (typeof b.surface === 'string' && !b.surface.includes('m²')) {
+        b.surface = b.surface + " m²";
+    }
+    // ensure description is a string if it's an array (which it is in biens.js)
+    if (Array.isArray(b.description)) {
+        b.desc = b.description.join(' ');
+    } else if (b.description) {
+        b.desc = b.description;
+    }
+});
 
 // ===== STATE =====
 let currentIndex = 0;
@@ -1275,7 +1195,7 @@ function renderCard() {
                         <div class="stat-icon-box">
                             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
                         </div>
-                        <div class="stat-text"><label>Chambres</label><span>${b.chambres}</span></div>
+                        <div class="stat-text"><label>Pièces</label><span>${b.pieces}</span></div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon-box">
@@ -1438,7 +1358,7 @@ function renderLikesGrid() {
                 <div class="liked-grid-city">${b.adresse} · ${b.ville}</div>
                 <div class="liked-grid-price">${b.prix}</div>
                 <div class="liked-grid-stats">
-                    <span class="liked-grid-stat"><strong>${b.chambres}</strong> ch.</span>
+                    <span class="liked-grid-stat"><strong>${b.pieces}</strong> p.</span>
                     <span class="liked-grid-stat"><strong>${b.sdb}</strong> sdb</span>
                     <span class="liked-grid-stat"><strong>${b.surface}</strong></span>
                 </div>
@@ -1467,7 +1387,7 @@ function openModal(b) {
     $('modalPrice').textContent = b.prix;
     $('modalDesc').textContent = b.desc;
     $('modalStats').innerHTML = `
-        <div class="modal-stat-box"><span class="val">${b.chambres}</span><span class="lbl">Chambres</span></div>
+        <div class="modal-stat-box"><span class="val">${b.pieces}</span><span class="lbl">Pièces</span></div>
         <div class="modal-stat-box"><span class="val">${b.sdb}</span><span class="lbl">Salles de bain</span></div>
         <div class="modal-stat-box"><span class="val">${b.surface}</span><span class="lbl">Surface</span></div>
     `;
