@@ -128,8 +128,18 @@
     transition: border-color 0.25s;
 }
 
-.coloc-label:hover {
+.coloc-label:hover,
+.coloc-label.active {
     border-color: var(--primary-color, #108a7e);
+}
+
+.coloc-label.active {
+    background: var(--primary-color, #108a7e);
+    color: white;
+}
+
+.coloc-label.active svg {
+    color: white;
 }
 
 .coloc-label svg {
@@ -343,13 +353,15 @@
 }
 
 .loc-card {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .loc-body {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 220px); /* Adjust based on image height */
+    flex-grow: 1;
+    padding: 20px 22px 22px;
 }
 
 .loc-footer {

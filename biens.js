@@ -223,8 +223,9 @@ const BIENS = [
         garage: "1 place",
         annee: "2010",
         dpe: "C",
-        tags: ["Jardin", "Calme"],
+        tags: ["Jardin", "Calme", "Coloc"],
         contrat: "Location",
+        disponibilite: "disponible",
         description: [
             "PLOUGRESCANT // Maison familiale de 115 m² située au calme d'une impasse.",
             "Elle offre une belle pièce de vie lumineuse, une cuisine aménagée et équipée, et trois chambres à l'étage.",
@@ -249,6 +250,7 @@ const BIENS = [
         dpe: "A",
         tags: ["Centre-ville", "Ascenseur"],
         contrat: "Location",
+        disponibilite: "bientot",
         description: [
             "LANNION CENTRE // Bel appartement T3 récent de 65 m² avec balcon.",
             "Situé au 2ème étage avec ascenseur, il comprend un séjour avec cuisine ouverte, deux chambres et une salle d'eau.",
@@ -273,6 +275,7 @@ const BIENS = [
         dpe: "E",
         tags: ["Charme", "Proche commerces"],
         contrat: "Location",
+        disponibilite: "disponible",
         description: [
             "TRÉGUIER // Charmante maison de bourg rénovée de 80 m².",
             "Cœur de ville historique, proche de toutes commodités. Salon avec cheminée décorative, cuisine séparée, deux chambres spacieuses."
