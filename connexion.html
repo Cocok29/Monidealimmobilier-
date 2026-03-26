@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion — Mon Idéal Immobilier</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html"><img class="logo-img" src="img/Logo_Mon-Ideal-Immobilier_1.svg" alt="Logo Mon Ideal Immobilier"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="catalogue.html">Acheter</a></li>
+                <li><a href="vendre.html">Vendre</a></li>
+                <li><a href="location.html">Louer</a></li>
+                <li><a href="notre-agence.html">Notre agence</a></li>
+                <li><a href="guide.html">Guide</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="match.html" class="btn-match-nav" aria-label="Match Immobilier">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z"></path>
+                </svg>
+            </a>
+            <a href="contact.html" class="btn-contact">Nous contacter</a>
+            <a href="inscription.html" class="btn-signup btn-signup-link">S'inscrire</a>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-card-header">
+                    <h1>Connectez <span class="highlight">vous</span></h1>
+                    <p>Connectez vous pour plus de fonctionnalités</p>
+                </div>
+
+                <div id="error-msg" class="auth-alert auth-alert-error" style="display:none;"></div>
+                <div id="success-msg" class="auth-alert auth-alert-success" style="display:none;"></div>
+
+                <form id="connexion-form" class="auth-form" novalidate>
+                    <fieldset class="form-group-card">
+                        <legend><i class="fa-regular fa-user"></i> Vos coordonnées</legend>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="email">Email *</label>
+                                <div class="input-icon-wrap">
+                                    <i class="fa-regular fa-envelope input-icon"></i>
+                                    <input type="email" id="email" name="email" placeholder="votre@email.fr" required autocomplete="email">
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label for="password">Mot de passe *</label>
+                                <div class="input-icon-wrap input-icon-right">
+                                    <input type="password" id="password" name="password" placeholder="••••••••••••" required autocomplete="current-password">
+                                    <button type="button" class="toggle-password" aria-label="Afficher le mot de passe" data-target="password">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-auth-submit">Se connecter</button>
+                        <p class="auth-switch">Pas encore de compte ? <a href="inscription.html">Inscrivez-vous</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('connexion-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            const errorEl = document.getElementById('error-msg');
+            const successEl = document.getElementById('success-msg');
+            errorEl.style.display = 'none';
+            successEl.style.display = 'none';
+
+            if (!email || !password) {
+                errorEl.textContent = 'Veuillez remplir tous les champs.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            const result = login(email, password);
+            if (result.success) {
+                successEl.textContent = 'Connexion réussie ! Redirection...';
+                successEl.style.display = 'block';
+                setTimeout(() => { window.location.href = 'index.html'; }, 1200);
+            } else {
+                errorEl.textContent = result.message;
+                errorEl.style.display = 'block';
+            }
+        });
+
+        // Toggle affichage mot de passe
+        document.querySelectorAll('.toggle-password').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const target = document.getElementById(this.dataset.target);
+                const icon = this.querySelector('i');
+                if (target.type === 'password') {
+                    target.type = 'text';
+                    icon.classList.replace('fa-eye', 'fa-eye-slash');
+                } else {
+                    target.type = 'password';
+                    icon.classList.replace('fa-eye-slash', 'fa-eye');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
