@@ -23,6 +23,7 @@
             --green-light: #e4f5f3;
             --bg: #fafafa;
             --white: #ffffff;
+            --accent-color: #f19b7d;
             --text: #1a2332;
             --muted: #8a9bb0;
             --red: #f04040;
@@ -148,47 +149,49 @@
         /* ===== TAB BAR ===== */
         .tab-bar {
             display: flex;
-            background: var(--white);
-            border-bottom: 1px solid #eef0f5;
+            justify-content: center;
+            gap: 16px;
+            padding: 30px 28px 10px;
+            background: transparent;
         }
 
         .tab {
             flex: 1;
+            max-width: 550px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 14px;
-            font-size: 0.88rem;
+            gap: 12px;
+            padding: 16px 45px;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             border: none;
-            background: transparent;
-            color: var(--muted);
+            border-radius: 12px;
+            background: #f4f5f8;
+            color: #4b5563;
             font-family: 'Montserrat', sans-serif;
-            transition: color 0.2s;
-            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .tab::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--green);
-            opacity: 0;
-            transition: opacity 0.2s;
+        .tab i {
+            font-size: 1.1rem;
+        }
+
+        .tab:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
         }
 
         .tab.active {
-            color: var(--white);
-            background: var(--green);
+            color: white;
+            background: var(--accent-color);
+            box-shadow: 0 6px 15px rgba(241, 155, 125, 0.35);
         }
 
-        .tab.active::after {
-            opacity: 0;
+        .tab.active:hover {
+            background: #e8895e;
+            transform: translateY(-2px);
         }
 
         /* ===== PAGE WRAPPER ===== */
@@ -448,12 +451,13 @@
         .dpe-badge {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            padding: 3px 10px;
+            justify-content: center;
+            gap: 5px;
+            padding: 4px 25px;
             background: #e8f8ec;
             color: #22c55e;
             border-radius: 20px;
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             font-weight: 700;
             white-space: nowrap;
         }
@@ -979,27 +983,22 @@
             </ul>
         </nav>
         <div class="auth-buttons">
-            <!-- Fire / Match Icon (Switch to Favoris) -->
-            <button class="fav-pill" style="height: 50px; padding: 0 16px;" onclick="switchTab('favoris')">
+            <a href="match.html" class="btn-match-nav active" aria-label="Match Immobilier">
                 <i class="fa-solid fa-fire"></i>
-                <span id="favPillCount">0</span>
-            </button>
-
-            <a href="contact.html" class="btn-contact" style="margin-left: 10px;">Nous contacter</a>
+            </a>
+            <a href="contact.html" class="btn-contact">Nous contacter</a>
+            <a href="inscription.html" class="btn-signup btn-signup-link">S'inscrire</a>
         </div>
     </header>
 
     <!-- ===== TAB BAR ===== -->
     <div class="tab-bar">
         <button class="tab active" id="tabDecouvrir" onclick="switchTab('decouvrir')">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-            </svg>
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
             Découvrir
         </button>
         <button class="tab" id="tabFavoris" onclick="switchTab('favoris')">
-            <i class="fa-solid fa-fire"></i>
+            <i class="fa-regular fa-heart"></i>
             Favoris (<span id="favTabCount">0</span>)
         </button>
     </div>
@@ -1125,8 +1124,10 @@ let isDragging = false, startX = 0, currentDX = 0;
 const $ = id => document.getElementById(id);
 
 function updateFavCount() {
-    $('favPillCount').textContent = likes.length;
-    $('favTabCount').textContent = likes.length;
+    const pill = $('favPillCount');
+    const tab = $('favTabCount');
+    if (pill) pill.textContent = likes.length;
+    if (tab) tab.textContent = likes.length;
 }
 
 // ===== TABS =====
@@ -1210,7 +1211,7 @@ function renderCard() {
                         ${b.annee}
                     </span>
                     <span class="dpe-badge">
-                        <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                         DPE ${b.dpe}
                     </span>
                     <a href="#" onclick="openModal(BIENS[currentIndex]); return false;" style="font-size:0.72rem;color:#108a7e;font-weight:700;text-decoration:none;margin-left:auto;display:flex;align-items:center;gap:3px;">

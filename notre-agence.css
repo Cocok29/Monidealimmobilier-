@@ -8,7 +8,7 @@
 /* ===== Hero Banner ===== */
 .agence-hero {
     position: relative;
-    height: 380px;
+    height: 500px;
     background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000') center center / cover no-repeat;
     display: flex;
     align-items: center;
@@ -50,6 +50,8 @@
 
 .histoire-container {
     max-width: 850px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .histoire-container h2 {
@@ -57,6 +59,7 @@
     font-weight: 700;
     color: var(--text-dark);
     margin: 0 0 30px;
+    text-align: center;
 }
 
 .histoire-container h2 em {
