@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *,
         *::before,
@@ -20,7 +21,7 @@
         :root {
             --green: #108a7e;
             --green-light: #e4f5f3;
-            --bg: #e8f5f2;
+            --bg: #fafafa;
             --white: #ffffff;
             --text: #1a2332;
             --muted: #8a9bb0;
@@ -445,7 +446,7 @@
         }
 
         .dpe-badge {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 4px;
             padding: 3px 10px;
@@ -454,6 +455,7 @@
             border-radius: 20px;
             font-size: 0.72rem;
             font-weight: 700;
+            white-space: nowrap;
         }
 
         /* Tags */
@@ -978,10 +980,8 @@
         </nav>
         <div class="auth-buttons">
             <!-- Fire / Match Icon (Switch to Favoris) -->
-            <button class="fav-pill" style="height: 42px; padding: 0 16px;" onclick="switchTab('favoris')">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
-                </svg>
+            <button class="fav-pill" style="height: 50px; padding: 0 16px;" onclick="switchTab('favoris')">
+                <i class="fa-solid fa-fire"></i>
                 <span id="favPillCount">0</span>
             </button>
 
@@ -999,10 +999,7 @@
             Découvrir
         </button>
         <button class="tab" id="tabFavoris" onclick="switchTab('favoris')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                    d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
-            </svg>
+            <i class="fa-solid fa-fire"></i>
             Favoris (<span id="favTabCount">0</span>)
         </button>
     </div>
@@ -1031,10 +1028,7 @@
                     </svg>
                 </button>
                 <button class="act-btn btn-like" id="btnLike" title="J'aime">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 2c0 0-6 6.2-6 10.5c0 1.8.7 3.4 1.8 4.6c-.3-.7-.5-1.5-.5-2.3c0-3.1 3.5-6.4 4.7-7.5c1.2 1.1 4.7 4.4 4.7 7.5c0 .8-.2 1.6-.5 2.3c1.1-1.2 1.8-2.8 1.8-4.6C18 8.2 12 2 12 2z" />
-                    </svg>
+                    <i class="fa-solid fa-fire" style="font-size: 28px;"></i>
                 </button>
             </div>
 
@@ -1045,10 +1039,10 @@
     <!-- ===== PAGE FAVORIS ===== -->
     <div class="page" id="pageFavoris">
         <div class="likes-page">
-            <div class="likes-page-title" id="likePageTitle">❤️ Mes favoris</div>
+            <div class="likes-page-title" id="likePageTitle"><i class="fa-solid fa-fire" style="color: var(--green);"></i> Mes favoris</div>
             <div class="likes-grid" id="likesGrid">
                 <div class="likes-empty-state" id="likesEmptyState">
-                    <div class="emoji">🔥</div>
+                    <div class="emoji"><i class="fa-solid fa-fire" style="color: var(--green);"></i></div>
                     <p>Aucun favori pour le moment.<br>Swipez à droite sur les biens qui vous plaisent !</p>
                     <button class="btn-go-discover" onclick="switchTab('decouvrir')">Découvrir des biens</button>
                 </div>
@@ -1338,7 +1332,7 @@ function renderLikesGrid() {
     const empty = $('likesEmptyState');
     const title = $('likePageTitle');
 
-    title.textContent = `❤️ Mes favoris (${likes.length})`;
+    title.innerHTML = `<i class="fa-solid fa-fire" style="color: var(--green);"></i> Mes favoris (${likes.length})`;
 
     // Remove all liked cards (keep the empty state node)
     Array.from(grid.children).forEach(el => { if (el !== empty) el.remove(); });
